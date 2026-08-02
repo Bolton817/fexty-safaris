@@ -1,14 +1,22 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { fetchPackages } from '@/lib/actions';
+import PackageCard from '@/components/PackageCard';
+import { getTranslations } from 'next-intl/server';
 
-export default function Home() {
+export const revalidate = 3600; // ISR cache every hour
+
+export default async function Home() {
+  const result = await fetchPackages();
+  const packages = result.data || [];
+  const t = await getTranslations('Navbar');
+
   return (
     <div className="flex-1 flex flex-col">
       {/* Hero Section */}
       <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center bg-savanna-900 overflow-hidden">
-        {/* Placeholder Background (Will be replaced with image/video) */}
         <div className="absolute inset-0 bg-gradient-to-br from-savanna-800 to-savanna-950 opacity-90" />
         
-        {/* Abstract shapes to make it look premium even without images yet */}
+        {/* Abstract shapes */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-sunset-500/10 blur-[120px]" />
           <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-savanna-500/20 blur-[100px]" />
@@ -33,19 +41,19 @@ export default function Home() {
               href="/destinations" 
               className="w-full sm:w-auto px-8 py-4 bg-sunset-500 hover:bg-sunset-600 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg shadow-sunset-500/25"
             >
-              Explore Destinations
+              Explore {t('Destinations')}
             </Link>
             <Link 
               href="/deals" 
               className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-semibold backdrop-blur-sm transition-all border border-white/10"
             >
-              View Local Deals
+              View {t('Deals')}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Categories Placeholder */}
+      {/* Featured Categories (Live Packages) */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -53,16 +61,17 @@ export default function Home() {
             <p className="text-sand-700 max-w-2xl mx-auto">From thrilling migrations to serene beach escapes, find the perfect journey tailored to your desires.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="aspect-[4/5] rounded-2xl bg-sand-200 border border-sand-300 flex items-center justify-center relative overflow-hidden group cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-t from-savanna-900/80 to-transparent z-10" />
-                <div className="relative z-20 text-center mt-auto pb-10 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-2">Category {item}</h3>
-                  <p className="text-sand-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Tours &rarr;</p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {packages.length === 0 ? (
+              <div className="col-span-full text-center py-12 text-sand-500 bg-sand-50 rounded-2xl border border-sand-200">
+                <p className="text-lg font-medium">New experiences are being crafted.</p>
+                <p>Check back soon for our latest curated safaris!</p>
               </div>
-            ))}
+            ) : (
+              packages.map((pkg: any) => (
+                <PackageCard key={pkg.id} pkg={pkg} />
+              ))
+            )}
           </div>
         </div>
       </section>
