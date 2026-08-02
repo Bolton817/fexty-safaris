@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-savanna-50: #f2f7f4;
+  --color-savanna-100: #e1efe6;
+  --color-savanna-200: #c5dfd0;
+  --color-savanna-300: #9bc6ae;
+  --color-savanna-400: #6ca886;
+  --color-savanna-500: #4a8b68;
+  --color-savanna-600: #376e50;
+  --color-savanna-700: #2d5841;
+  --color-savanna-800: #254736;
+  --color-savanna-900: #1f3b2d;
+  --color-savanna-950: #102119;
+
+  --color-sunset-50: #fff8f1;
+  --color-sunset-100: #ffeedb;
+  --color-sunset-200: #ffdab3;
+  --color-sunset-300: #ffc080;
+  --color-sunset-400: #ff9d40;
+  --color-sunset-500: #ff7d0a;
+  --color-sunset-600: #f06100;
+  --color-sunset-700: #c74902;
+  --color-sunset-800: #9e390a;
+  --color-sunset-900: #7f310d;
+  --color-sunset-950: #451604;
+
+  --color-sand-50: #fdfdfc;
+  --color-sand-100: #fbfbfa;
+  --color-sand-200: #f5f5f0;
+  --color-sand-300: #ebebe0;
+  --color-sand-400: #dcdccc;
+  --color-sand-500: #c8c8b4;
+  --color-sand-600: #b4b49c;
+  --color-sand-700: #969682;
+  --color-sand-800: #787868;
+  --color-sand-900: #646456;
+  --color-sand-950: #32322a;
+
+  --color-background: var(--color-sand-50);
+  --color-foreground: var(--color-savanna-950);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: var(--color-sand-50);
+  --foreground: var(--color-savanna-950);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-savanna-950);
+    --foreground: var(--color-sand-50);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
