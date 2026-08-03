@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export default function AdminLayout({
   children,
@@ -11,7 +11,7 @@ export default function AdminLayout({
       <aside className="w-64 bg-savanna-950 text-white p-6 hidden md:block shrink-0">
         <h2 className="text-2xl font-bold mb-8">Admin Panel</h2>
         <nav className="space-y-4">
-          <Link href="/admin/dashboard" className="block text-sunset-400 font-medium">Dashboard</Link>
+          <Link href="/admin/dashboard/packages" className="block text-sunset-400 font-medium">Dashboard</Link>
           <Link href="/" className="block text-sand-400 hover:text-white transition-colors">View Site</Link>
         </nav>
       </aside>

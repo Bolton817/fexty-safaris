@@ -35,6 +35,8 @@ export default function Footer() {
             <ul className="space-y-4">
               <li><Link href="/destinations" className="hover:text-sunset-400 transition-colors">{tNav('Destinations')}</Link></li>
               <li><Link href="/deals" className="hover:text-sunset-400 transition-colors">{tNav('Deals')}</Link></li>
+              <li><Link href="/services/flight-bookings" className="hover:text-sunset-400 transition-colors">Flight Bookings</Link></li>
+              <li><Link href="/services/visa-passport" className="hover:text-sunset-400 transition-colors">Visas & Passports</Link></li>
               <li><Link href="/about" className="hover:text-sunset-400 transition-colors">{tNav('About')}</Link></li>
             </ul>
           </div>

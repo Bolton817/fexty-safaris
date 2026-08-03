@@ -128,14 +128,14 @@ export default function Navbar() {
                 <div className="container mx-auto px-4 py-10">
                   <div className="grid grid-cols-3 gap-12">
                     <div>
-                      <div className="flex items-center gap-2 mb-6">
+                      <Link href="/destinations/kenya" className="flex items-center gap-2 mb-6 group/title">
                         <MapPin className="w-5 h-5 text-sunset-500" />
-                        <h3 className="text-xl font-bold text-savanna-900">{t(DESTINATION_KEYS.kenya.titleKey as any)}</h3>
-                      </div>
+                        <h3 className="text-xl font-bold text-savanna-900 group-hover/title:text-sunset-500 transition-colors">{t(DESTINATION_KEYS.kenya.titleKey as any)}</h3>
+                      </Link>
                       <ul className="space-y-3">
                         {DESTINATION_KEYS.kenya.items.map(item => (
                           <li key={item.slug} className="mega-menu-item">
-                            <Link href={`/destinations/${item.slug}`} className="text-sand-700 hover:text-sunset-500 hover:translate-x-1 inline-block transition-transform">
+                            <Link href={`/destinations/kenya#${item.slug}`} className="text-sand-700 hover:text-sunset-500 hover:translate-x-1 inline-block transition-transform">
                               {t(item.key as any)}
                             </Link>
                           </li>
@@ -143,14 +143,14 @@ export default function Navbar() {
                       </ul>
                     </div>
                     <div>
-                      <div className="flex items-center gap-2 mb-6">
+                      <Link href="/destinations/coast" className="flex items-center gap-2 mb-6 group/title">
                         <Compass className="w-5 h-5 text-sunset-500" />
-                        <h3 className="text-xl font-bold text-savanna-900">{t(DESTINATION_KEYS.coast.titleKey as any)}</h3>
-                      </div>
+                        <h3 className="text-xl font-bold text-savanna-900 group-hover/title:text-sunset-500 transition-colors">{t(DESTINATION_KEYS.coast.titleKey as any)}</h3>
+                      </Link>
                       <ul className="space-y-3">
                         {DESTINATION_KEYS.coast.items.map(item => (
                           <li key={item.slug} className="mega-menu-item">
-                            <Link href={`/destinations/${item.slug}`} className="text-sand-700 hover:text-sunset-500 hover:translate-x-1 inline-block transition-transform">
+                            <Link href={`/destinations/coast#${item.slug}`} className="text-sand-700 hover:text-sunset-500 hover:translate-x-1 inline-block transition-transform">
                               {t(item.key as any)}
                             </Link>
                           </li>
@@ -158,14 +158,14 @@ export default function Navbar() {
                       </ul>
                     </div>
                     <div>
-                      <div className="flex items-center gap-2 mb-6">
+                      <Link href="/destinations/borders" className="flex items-center gap-2 mb-6 group/title">
                         <Briefcase className="w-5 h-5 text-sunset-500" />
-                        <h3 className="text-xl font-bold text-savanna-900">{t(DESTINATION_KEYS.borders.titleKey as any)}</h3>
-                      </div>
+                        <h3 className="text-xl font-bold text-savanna-900 group-hover/title:text-sunset-500 transition-colors">{t(DESTINATION_KEYS.borders.titleKey as any)}</h3>
+                      </Link>
                       <ul className="space-y-3">
                         {DESTINATION_KEYS.borders.items.map(item => (
                           <li key={item.slug} className="mega-menu-item">
-                            <Link href={`/destinations/${item.slug}`} className="text-sand-700 hover:text-sunset-500 hover:translate-x-1 inline-block transition-transform">
+                            <Link href={`/destinations/borders#${item.slug}`} className="text-sand-700 hover:text-sunset-500 hover:translate-x-1 inline-block transition-transform">
                               {t(item.key as any)}
                             </Link>
                           </li>
@@ -179,15 +179,15 @@ export default function Navbar() {
 
             {/* Mega Menu: Themes */}
             <div className="group h-full flex items-center px-2 xl:px-3 mega-menu-trigger">
-              <button className={`flex items-center gap-1 font-medium transition-colors h-full outline-none ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
+              <Link href="/deals" className={`flex items-center gap-1 font-medium transition-colors h-full outline-none ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
                 {t('Deals')} <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-              </button>
+              </Link>
               
               <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-sand-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 mega-menu-panel">
                 <div className="container mx-auto px-4 py-8">
                   <div className="grid grid-cols-5 gap-6">
                     {THEME_KEYS.map(theme => (
-                      <Link href={`/themes/${theme.slug}`} key={theme.slug} className="bg-sand-50 rounded-xl p-6 hover:bg-sunset-50 transition-colors group/card cursor-pointer mega-menu-item block">
+                      <Link href={`/deals#${theme.slug}`} key={theme.slug} className="bg-sand-50 rounded-xl p-6 hover:bg-sunset-50 transition-colors group/card cursor-pointer mega-menu-item block">
                         <h4 className="font-bold text-savanna-900 group-hover/card:text-sunset-600 transition-colors mb-2">{t(theme.key as any)}</h4>
                         <p className="text-sm text-sand-600">{t('DealsMenu.desc')}</p>
                       </Link>
@@ -306,26 +306,32 @@ export default function Navbar() {
             <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'destinations' ? 'max-h-[1000px] opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
               <div className="pl-4 space-y-6 pt-2">
                 <div>
-                  <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.kenya.titleKey as any)}</h4>
+                  <Link href="/destinations/kenya" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                    <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.kenya.titleKey as any)}</h4>
+                  </Link>
                   <ul className="space-y-2 border-l border-sand-200 pl-4">
                     {DESTINATION_KEYS.kenya.items.map(item => (
-                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
+                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/kenya#${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.coast.titleKey as any)}</h4>
+                  <Link href="/destinations/coast" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                    <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.coast.titleKey as any)}</h4>
+                  </Link>
                   <ul className="space-y-2 border-l border-sand-200 pl-4">
                     {DESTINATION_KEYS.coast.items.map(item => (
-                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
+                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/coast#${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.borders.titleKey as any)}</h4>
+                  <Link href="/destinations/borders" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                    <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.borders.titleKey as any)}</h4>
+                  </Link>
                   <ul className="space-y-2 border-l border-sand-200 pl-4">
                     {DESTINATION_KEYS.borders.items.map(item => (
-                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
+                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/borders#${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
                     ))}
                   </ul>
                 </div>
@@ -339,13 +345,13 @@ export default function Navbar() {
               onClick={() => toggleAccordion('themes')}
               className="flex items-center justify-between w-full py-2 text-lg font-bold text-savanna-900"
             >
-              {t('Deals')}
+              <Link href="/deals" onClick={() => setIsMobileMenuOpen(false)}>{t('Deals')}</Link>
               <ChevronDown className={`w-5 h-5 transition-transform ${activeMobileAccordion === 'themes' ? 'rotate-180 text-sunset-500' : 'text-sand-400'}`} />
             </button>
             <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'themes' ? 'max-h-96 opacity-100 pb-2' : 'max-h-0 opacity-0'}`}>
               <ul className="space-y-1 pl-4 pt-1">
                 {THEME_KEYS.map(theme => (
-                  <li key={theme.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/themes/${theme.slug}`} className="block py-1 text-sand-700 border-b border-sand-50 last:border-0">{t(theme.key as any)}</Link></li>
+                  <li key={theme.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/deals#${theme.slug}`} className="block py-1 text-sand-700 border-b border-sand-50 last:border-0">{t(theme.key as any)}</Link></li>
                 ))}
               </ul>
             </div>

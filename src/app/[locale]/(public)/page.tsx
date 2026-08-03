@@ -1,5 +1,7 @@
 import Hero from '@/components/sections/home/hero/Hero';
-import DestinationsMasonry from '@/components/sections/home/destinations/DestinationsMasonry';
+import MagicalKenya from '@/components/sections/home/destinations/MagicalKenya';
+import TemboCoast from '@/components/sections/home/destinations/TemboCoast';
+import BeyondBorders from '@/components/sections/home/destinations/BeyondBorders';
 import ProductCarousel from '@/components/sections/home/deals/ProductCarousel';
 import CuratedStyles from '@/components/sections/home/styles/CuratedStyles';
 import CorporateAndServices from '@/components/sections/home/services/CorporateAndServices';
@@ -12,7 +14,9 @@ export default async function Home() {
   return (
     <div className="flex-1 flex flex-col">
       <Hero />
-      <DestinationsMasonry />
+      <MagicalKenya />
+      <TemboCoast />
+      <BeyondBorders />
       <ProductCarousel />
       <CuratedStyles />
       <CorporateAndServices />

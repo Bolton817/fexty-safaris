@@ -39,9 +39,16 @@ export async function updateSession(request: NextRequest) {
   
   const isAdminRoute = pathWithoutLocale.startsWith('/admin')
   const isLoginRoute = pathWithoutLocale === '/admin/login'
+  const isBareAdminRoute = pathWithoutLocale === '/admin' || pathWithoutLocale === '/admin/'
 
   if (isAdminRoute && !isLoginRoute && !user) {
     url.pathname = url.pathname.replace(pathWithoutLocale, '/admin/login')
+    return NextResponse.redirect(url)
+  }
+
+  // If user is logged in and visits the bare /admin route, take them to the dashboard
+  if (isBareAdminRoute && user) {
+    url.pathname = url.pathname.replace(pathWithoutLocale, '/admin/dashboard')
     return NextResponse.redirect(url)
   }
 
