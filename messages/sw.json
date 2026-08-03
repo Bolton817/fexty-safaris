@@ -3,8 +3,123 @@
     "Home": "Nyumbani",
     "Destinations": "Maeneo",
     "Deals": "Ofa",
+    "Services": "Huduma",
     "About": "Kuhusu Sisi",
     "Search": "Tafuta",
-    "InquireNow": "Uliza Sasa"
+    "InquireNow": "Uliza Sasa",
+    "DestinationsMenu": {
+      "kenyaTitle": "Kenya ya Kustaajabisha",
+      "coastTitle": "Pwani ya Tembo",
+      "bordersTitle": "Zaidi ya Mipaka",
+      "maasaiMara": "Maasai Mara",
+      "amboseli": "Amboseli",
+      "naivasha": "Naivasha",
+      "nakuru": "Nakuru",
+      "nairobiStaycations": "Mapumziko Nairobi",
+      "dianiBeach": "Pwani ya Diani",
+      "mombasa": "Mombasa",
+      "malindi": "Malindi",
+      "watamu": "Watamu",
+      "lamu": "Lamu",
+      "dubai": "Dubai",
+      "maldives": "Maldives",
+      "bali": "Bali",
+      "malaysiaSingapore": "Malaysia/Singapore",
+      "europe": "Ulaya",
+      "capeTown": "Cape Town"
+    },
+    "DealsMenu": {
+      "bushSafari": "Pori & Safari",
+      "beachEscapes": "Mapumziko ya Pwani",
+      "romanceHoneymoons": "Huba & Fungate",
+      "adventureAlpine": "Matukio & Milima",
+      "corporateMice": "Mikutano ya Biashara",
+      "desc": "Gundua uzoefu uliotengenezwa mahususi kwa mtindo wako."
+    },
+    "ServicesMenu": {
+      "flightBookings": "Uhifadhi wa Ndege",
+      "visaPassport": "Msaada wa Visa na Pasipoti",
+      "desc": "Msaada wa kitaalamu kutoka kwa wataalam wetu wa usafiri."
+    },
+    "Languages": {
+      "en": "English",
+      "sw": "Kiswahili",
+      "fr": "Français",
+      "es": "Español",
+      "de": "Deutsch",
+      "zh": "中文",
+      "ar": "العربية"
+    }
+  },
+  "Footer": {
+    "desc": "Fanya safari zisizosahaulika kote Afrika. Jionee pori kwa anasa, faraja na usalama ukiwa na Fexty Safaris.",
+    "quickLinks": "Viungo vya Haraka",
+    "destinations": "Maeneo",
+    "contactInfo": "Mawasiliano",
+    "rights": "Haki zote zimehifadhiwa."
+  },
+  "Home": {
+    "heroTag": "GUNDUA PORI",
+    "heroTitle1": "Safari za Kifahari",
+    "heroTitle2": "Zaidi ya Fikra Zako",
+    "heroDesc": "Anza matukio yaliyopangwa kote katika mandhari zinazovutia. Shuhudia maajabu makubwa ya asili ukiwa na anasa isiyoyumba na waelekezi wataalamu.",
+    "exploreDestinations": "Gundua Maeneo",
+    "viewDeals": "Tazama Ofa",
+    "curatedTitle": "Uzoefu Ulioratibiwa",
+    "curatedDesc": "Kutoka kwa uhamaji wa kusisimua hadi mapumziko tulivu ya ufuo, pata safari bora inayolenga matamanio yako.",
+    "noPackages": "Uzoefu mpya unatengenezwa.",
+    "checkBack": "Rudi hivi karibuni kwa safari zetu za hivi punde!"
+  },
+  "About": {
+    "title": "Kuhusu Fexty Safaris",
+    "subtitle": "Kutengeneza safari zisizosahaulika tangu 2010.",
+    "p1": "Fexty Safaris ilizaliwa kutokana na upendo wa kina kwa pori la Afrika na hamu ya kushiriki uzuri wake usio na kifani na ulimwengu. Sisi ni zaidi ya wakala wa usafiri; sisi ni washirika wako katika utafiti, waliojitolea kuratibu safari zinazoendana na roho yako ya matukio.",
+    "p2": "Timu yetu ya waelekezi na wapanga safari wana ujuzi wa kina wa mandhari, wanyamapori na tamaduni za Afrika Mashariki. Tunaamini katika utalii endelevu unaoinua jamii na kulinda mazingira yetu.",
+    "whyChooseUs": "Kwa Nini Utuchague?",
+    "expertGuides": "Waelekezi Wataalamu",
+    "expertGuidesDesc": "Waelekezi wetu ni wataalamu waliofunzwa sana na wenye miaka mingi ya uzoefu wa kuvinjari porini.",
+    "tailoredItineraries": "Ratiba Maalumu",
+    "tailoredItinerariesDesc": "Tunaunda safari zinazofaa iliyoundwa kulingana na maslahi yako maalum.",
+    "uncompromisedLuxury": "Anasa Isiyopimika",
+    "uncompromisedLuxuryDesc": "Furahia pori bila kuacha faraja. Tunashirikiana na nyumba nzuri zaidi za kulala wageni."
+  },
+  "Contact": {
+    "title": "Wasiliana Nasi",
+    "subtitle": "Je, uko tayari kuanza kupanga safari yako ya ndoto? Tuko hapa kusaidia.",
+    "phone": "Simu",
+    "email": "Barua Pepe",
+    "location": "Mahali",
+    "sendUsMessage": "Tutumie Ujumbe",
+    "nameLabel": "Jina Kamili",
+    "emailLabel": "Barua Pepe Yako",
+    "subjectLabel": "Mada",
+    "messageLabel": "Ujumbe Wako",
+    "sending": "Inatuma...",
+    "sendMessage": "Tuma Ujumbe",
+    "successMessage": "Ujumbe wako umetumwa kikamilifu. Tutawasiliana nawe hivi karibuni!"
+  },
+  "Package": {
+    "startingFrom": "Kuanzia",
+    "noImage": "Hakuna Picha",
+    "duration": "Muda",
+    "bookNow": "Weka Nafasi",
+    "overview": "Maelezo ya Jumla",
+    "itinerary": "Ratiba",
+    "includes": "Vitu Vilivyojumuishwa",
+    "day": "Siku"
+  },
+  "DynamicPackages": {
+    "masai_mara_migration": {
+      "title": "Uzoefu wa Uhamaji Masai Mara",
+      "description": "Shuhudia maajabu makubwa zaidi ya wanyamapori duniani. Kambi za kifahari na safari za kuongozwa."
+    },
+    "diani_beach_escape": {
+      "title": "Mapumziko ya Pwani ya Diani",
+      "description": "Pumzika kwenye mchanga mweupe safi wa Diani. Kamili kwa ajili ya fungate na likizo za familia."
+    },
+    "amboseli_elephants": {
+      "title": "Safari ya Tembo Amboseli",
+      "description": "Pata karibu na makundi makubwa ya tembo yaliyowekwa dhidi ya mandhari nzuri ya Mlima Kilimanjaro."
+    }
   }
 }

@@ -1,0 +1,125 @@
+{
+  "Navbar": {
+    "Home": "الرئيسية",
+    "Destinations": "الوجهات",
+    "Deals": "العروض",
+    "Services": "الخدمات",
+    "About": "معلومات عنا",
+    "Search": "بحث",
+    "InquireNow": "استفسر الآن",
+    "DestinationsMenu": {
+      "kenyaTitle": "كينيا الساحرة",
+      "coastTitle": "ساحل تيمبو",
+      "bordersTitle": "ما وراء الحدود",
+      "maasaiMara": "ماساي مارا",
+      "amboseli": "أمبوسيلي",
+      "naivasha": "نايفاشا",
+      "nakuru": "ناكورو",
+      "nairobiStaycations": "إقامات نيروبي",
+      "dianiBeach": "شاطئ دياني",
+      "mombasa": "مومباسا",
+      "malindi": "ماليندي",
+      "watamu": "واتامو",
+      "lamu": "لامو",
+      "dubai": "دبي",
+      "maldives": "جزر المالديف",
+      "bali": "بالي",
+      "malaysiaSingapore": "ماليزيا/سنغافورة",
+      "europe": "أوروبا",
+      "capeTown": "كيب تاون"
+    },
+    "DealsMenu": {
+      "bushSafari": "رحلات السفاري والأدغال",
+      "beachEscapes": "رحلات الشاطئ",
+      "romanceHoneymoons": "الرومانسية وشهر العسل",
+      "adventureAlpine": "المغامرة والجبال",
+      "corporateMice": "فعاليات الشركات",
+      "desc": "اكتشف تجارب مصممة خصيصًا لتناسب أسلوبك."
+    },
+    "ServicesMenu": {
+      "flightBookings": "حجوزات الطيران",
+      "visaPassport": "المساعدة في التأشيرات",
+      "desc": "مساعدة مهنية من خبراء السفر لدينا."
+    },
+    "Languages": {
+      "en": "English",
+      "sw": "Kiswahili",
+      "fr": "Français",
+      "es": "Español",
+      "de": "Deutsch",
+      "zh": "中文",
+      "ar": "العربية"
+    }
+  },
+  "Footer": {
+    "desc": "انطلق في رحلات لا تُنسى عبر إفريقيا. اختبر البرية برفاهية وراحة مع سفاري فيكستي.",
+    "quickLinks": "روابط سريعة",
+    "destinations": "الوجهات",
+    "contactInfo": "معلومات الاتصال",
+    "rights": "جميع الحقوق محفوظة."
+  },
+  "Home": {
+    "heroTag": "اكتشف البرية",
+    "heroTitle1": "رحلات سفاري فاخرة",
+    "heroTitle2": "تفوق الخيال",
+    "heroDesc": "انطلق في مغامرات مصممة عبر مناظر طبيعية خلابة. شاهد أعظم عروض الطبيعة.",
+    "exploreDestinations": "استكشف الوجهات",
+    "viewDeals": "عرض الصفقات",
+    "curatedTitle": "تجارب مختارة",
+    "curatedDesc": "من الهجرات المثيرة إلى رحلات الشاطئ الهادئة.",
+    "noPackages": "يتم إعداد تجارب جديدة.",
+    "checkBack": "عد قريبًا لرؤية أحدث رحلاتنا!"
+  },
+  "About": {
+    "title": "عن سفاري فيكستي",
+    "subtitle": "نصنع رحلات لا تُنسى منذ 2010.",
+    "p1": "وُلدت سفاري فيكستي من حب عميق للبرية الأفريقية.",
+    "p2": "يتمتع فريق المرشدين لدينا بمعرفة حميمة بالمناظر الطبيعية.",
+    "whyChooseUs": "لماذا تختارنا؟",
+    "expertGuides": "مرشدون خبراء",
+    "expertGuidesDesc": "مرشدونا هم محترفون مدربون تدريباً عالياً.",
+    "tailoredItineraries": "مسارات مخصصة",
+    "tailoredItinerariesDesc": "نحن نصمم رحلات مخصصة حول اهتماماتك.",
+    "uncompromisedLuxury": "رفاهية بلا تنازلات",
+    "uncompromisedLuxuryDesc": "جرب البرية دون التضحية بالراحة."
+  },
+  "Contact": {
+    "title": "ابقى على تواصل",
+    "subtitle": "جاهز لبدء التخطيط لسفاري أحلامك؟",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "location": "الموقع",
+    "sendUsMessage": "أرسل لنا رسالة",
+    "nameLabel": "الاسم الكامل",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "subjectLabel": "الموضوع",
+    "messageLabel": "رسالتك",
+    "sending": "جاري الإرسال...",
+    "sendMessage": "إرسال الرسالة",
+    "successMessage": "تم إرسال رسالتك بنجاح!"
+  },
+  "Package": {
+    "startingFrom": "ابتداءً من",
+    "noImage": "لا توجد صورة",
+    "duration": "المدة",
+    "bookNow": "احجز هذا السفاري",
+    "overview": "نظرة عامة",
+    "itinerary": "خط سير الرحلة",
+    "includes": "ما يتضمنه العرض",
+    "day": "اليوم"
+  },
+  "DynamicPackages": {
+    "masai_mara_migration": {
+      "title": "تجربة هجرة ماساي مارا",
+      "description": "شاهد أعظم عرض للحياة البرية على وجه الأرض."
+    },
+    "diani_beach_escape": {
+      "title": "عطلة شاطئ دياني",
+      "description": "استرخ على الرمال البيضاء النقية في دياني."
+    },
+    "amboseli_elephants": {
+      "title": "سفاري أفيال أمبوسيلي",
+      "description": "اقترب من قطعان الأفيال العملاقة."
+    }
+  }
+}

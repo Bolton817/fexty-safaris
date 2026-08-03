@@ -3,8 +3,123 @@
     "Home": "Home",
     "Destinations": "Destinations",
     "Deals": "Deals",
-    "About": "About",
+    "Services": "Services",
+    "About": "About Us",
     "Search": "Search",
-    "InquireNow": "Inquire Now"
+    "InquireNow": "Inquire Now",
+    "DestinationsMenu": {
+      "kenyaTitle": "Magical Kenya",
+      "coastTitle": "Tembo Coast",
+      "bordersTitle": "Beyond Borders",
+      "maasaiMara": "Maasai Mara",
+      "amboseli": "Amboseli",
+      "naivasha": "Naivasha",
+      "nakuru": "Nakuru",
+      "nairobiStaycations": "Nairobi Staycations",
+      "dianiBeach": "Diani Beach",
+      "mombasa": "Mombasa",
+      "malindi": "Malindi",
+      "watamu": "Watamu",
+      "lamu": "Lamu",
+      "dubai": "Dubai",
+      "maldives": "Maldives",
+      "bali": "Bali",
+      "malaysiaSingapore": "Malaysia/Singapore",
+      "europe": "Europe",
+      "capeTown": "Cape Town"
+    },
+    "DealsMenu": {
+      "bushSafari": "Bush & Safari",
+      "beachEscapes": "Beach Escapes",
+      "romanceHoneymoons": "Romance & Honeymoons",
+      "adventureAlpine": "Adventure & Alpine",
+      "corporateMice": "Corporate MICE",
+      "desc": "Discover curated experiences perfectly tailored for your style."
+    },
+    "ServicesMenu": {
+      "flightBookings": "Flight Bookings",
+      "visaPassport": "Visa & Passport Concierge",
+      "desc": "Professional assistance from our dedicated in-house travel experts."
+    },
+    "Languages": {
+      "en": "English",
+      "sw": "Kiswahili",
+      "fr": "Français",
+      "es": "Español",
+      "de": "Deutsch",
+      "zh": "中文",
+      "ar": "العربية"
+    }
+  },
+  "Footer": {
+    "desc": "Embark on unforgettable journeys across Africa. Experience the wild in luxury, comfort, and safety with Fexty Safaris.",
+    "quickLinks": "Quick Links",
+    "destinations": "Destinations",
+    "contactInfo": "Contact Info",
+    "rights": "All rights reserved."
+  },
+  "Home": {
+    "heroTag": "DISCOVER THE WILD",
+    "heroTitle1": "Premium Safaris",
+    "heroTitle2": "Beyond Imagination",
+    "heroDesc": "Embark on curated adventures across breathtaking landscapes. Witness nature's greatest spectacles with uncompromised luxury and expert guides.",
+    "exploreDestinations": "Explore Destinations",
+    "viewDeals": "View Deals",
+    "curatedTitle": "Curated Experiences",
+    "curatedDesc": "From thrilling migrations to serene beach escapes, find the perfect journey tailored to your desires.",
+    "noPackages": "New experiences are being crafted.",
+    "checkBack": "Check back soon for our latest curated safaris!"
+  },
+  "About": {
+    "title": "About Fexty Safaris",
+    "subtitle": "Crafting unforgettable journeys since 2010.",
+    "p1": "Fexty Safaris was born out of a profound love for the African wilderness and a desire to share its unparalleled beauty with the world. We are more than just a travel agency; we are your dedicated partners in exploration, committed to curating safaris that resonate with your spirit of adventure.",
+    "p2": "Our team of expert guides and travel planners possess an intimate knowledge of the landscapes, wildlife, and cultures of East Africa. We believe in sustainable tourism that uplifts local communities and protects the delicate ecosystems we visit.",
+    "whyChooseUs": "Why Choose Us?",
+    "expertGuides": "Expert Guides",
+    "expertGuidesDesc": "Our guides are highly trained professionals with years of experience navigating the bush.",
+    "tailoredItineraries": "Tailored Itineraries",
+    "tailoredItinerariesDesc": "We craft bespoke journeys designed around your specific interests and preferences.",
+    "uncompromisedLuxury": "Uncompromised Luxury",
+    "uncompromisedLuxuryDesc": "Experience the wild without sacrificing comfort. We partner with the finest lodges."
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to start planning your dream safari? We're here to help.",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "sendUsMessage": "Send us a Message",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email Address",
+    "subjectLabel": "Subject",
+    "messageLabel": "Your Message",
+    "sending": "Sending...",
+    "sendMessage": "Send Message",
+    "successMessage": "Your message has been sent successfully. We will be in touch shortly!"
+  },
+  "Package": {
+    "startingFrom": "Starting from",
+    "noImage": "No Image",
+    "duration": "Duration",
+    "bookNow": "Book This Safari",
+    "overview": "Overview",
+    "itinerary": "Itinerary",
+    "includes": "What's Included",
+    "day": "Day"
+  },
+  "DynamicPackages": {
+    "masai_mara_migration": {
+      "title": "Masai Mara Migration Experience",
+      "description": "Witness the greatest wildlife spectacle on earth. Luxury tented camps and guided game drives."
+    },
+    "diani_beach_escape": {
+      "title": "Diani Beach Escape",
+      "description": "Relax on the pristine white sands of Diani. Perfect for honeymoons and family getaways."
+    },
+    "amboseli_elephants": {
+      "title": "Amboseli Elephant Safari",
+      "description": "Get up close with giant herds of elephants set against the magnificent backdrop of Mount Kilimanjaro."
+    }
   }
 }

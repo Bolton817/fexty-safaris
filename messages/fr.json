@@ -1,0 +1,125 @@
+{
+  "Navbar": {
+    "Home": "Accueil",
+    "Destinations": "Destinations",
+    "Deals": "Offres",
+    "Services": "Services",
+    "About": "À Propos",
+    "Search": "Recherche",
+    "InquireNow": "Renseignez-vous",
+    "DestinationsMenu": {
+      "kenyaTitle": "Kenya Magique",
+      "coastTitle": "Côte Tembo",
+      "bordersTitle": "Au-delà des Frontières",
+      "maasaiMara": "Maasai Mara",
+      "amboseli": "Amboseli",
+      "naivasha": "Naivasha",
+      "nakuru": "Nakuru",
+      "nairobiStaycations": "Séjours à Nairobi",
+      "dianiBeach": "Plage de Diani",
+      "mombasa": "Mombasa",
+      "malindi": "Malindi",
+      "watamu": "Watamu",
+      "lamu": "Lamu",
+      "dubai": "Dubaï",
+      "maldives": "Maldives",
+      "bali": "Bali",
+      "malaysiaSingapore": "Malaisie/Singapour",
+      "europe": "Europe",
+      "capeTown": "Le Cap"
+    },
+    "DealsMenu": {
+      "bushSafari": "Brousse & Safari",
+      "beachEscapes": "Escapades à la Plage",
+      "romanceHoneymoons": "Romance & Lunes de Miel",
+      "adventureAlpine": "Aventure & Alpin",
+      "corporateMice": "Séminaires d'Entreprise",
+      "desc": "Découvrez des expériences personnalisées parfaitement adaptées à votre style."
+    },
+    "ServicesMenu": {
+      "flightBookings": "Réservations de Vols",
+      "visaPassport": "Assistance Visa & Passeport",
+      "desc": "Assistance professionnelle de nos experts en voyages dédiés."
+    },
+    "Languages": {
+      "en": "English",
+      "sw": "Kiswahili",
+      "fr": "Français",
+      "es": "Español",
+      "de": "Deutsch",
+      "zh": "中文",
+      "ar": "العربية"
+    }
+  },
+  "Footer": {
+    "desc": "Embarquez pour des voyages inoubliables à travers l'Afrique. Découvrez la vie sauvage dans le luxe, le confort et la sécurité avec Fexty Safaris.",
+    "quickLinks": "Liens Rapides",
+    "destinations": "Destinations",
+    "contactInfo": "Coordonnées",
+    "rights": "Tous droits réservés."
+  },
+  "Home": {
+    "heroTag": "DÉCOUVREZ LA NATURE",
+    "heroTitle1": "Safaris Premium",
+    "heroTitle2": "Au-delà de l'Imagination",
+    "heroDesc": "Embarquez pour des aventures sur mesure à travers des paysages à couper le souffle. Soyez témoin des plus grands spectacles de la nature avec un luxe sans compromis.",
+    "exploreDestinations": "Explorer les Destinations",
+    "viewDeals": "Voir les Offres",
+    "curatedTitle": "Expériences Uniques",
+    "curatedDesc": "Des migrations palpitantes aux escapades sereines à la plage, trouvez le voyage parfait adapté à vos désirs.",
+    "noPackages": "De nouvelles expériences sont en cours de création.",
+    "checkBack": "Revenez bientôt pour nos derniers safaris!"
+  },
+  "About": {
+    "title": "À Propos de Fexty Safaris",
+    "subtitle": "Création de voyages inoubliables depuis 2010.",
+    "p1": "Fexty Safaris est née d'un amour profond pour la faune africaine. Nous sommes vos partenaires dévoués dans l'exploration, engagés à organiser des safaris qui résonnent avec votre esprit d'aventure.",
+    "p2": "Notre équipe possède une connaissance intime des paysages et des cultures de l'Afrique de l'Est. Nous croyons en un tourisme durable qui protège les écosystèmes.",
+    "whyChooseUs": "Pourquoi Nous Choisir?",
+    "expertGuides": "Guides Experts",
+    "expertGuidesDesc": "Nos guides sont des professionnels hautement qualifiés.",
+    "tailoredItineraries": "Itinéraires Sur Mesure",
+    "tailoredItinerariesDesc": "Nous élaborons des voyages sur mesure autour de vos intérêts.",
+    "uncompromisedLuxury": "Luxe Sans Compromis",
+    "uncompromisedLuxuryDesc": "Découvrez la nature sans sacrifier le confort."
+  },
+  "Contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Prêt à planifier le safari de vos rêves? Nous sommes là pour vous aider.",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "location": "Emplacement",
+    "sendUsMessage": "Envoyez-nous un Message",
+    "nameLabel": "Nom Complet",
+    "emailLabel": "Adresse E-mail",
+    "subjectLabel": "Sujet",
+    "messageLabel": "Votre Message",
+    "sending": "Envoi...",
+    "sendMessage": "Envoyer le Message",
+    "successMessage": "Votre message a été envoyé avec succès!"
+  },
+  "Package": {
+    "startingFrom": "À partir de",
+    "noImage": "Aucune Image",
+    "duration": "Durée",
+    "bookNow": "Réserver ce Safari",
+    "overview": "Aperçu",
+    "itinerary": "Itinéraire",
+    "includes": "Ce qui est Inclus",
+    "day": "Jour"
+  },
+  "DynamicPackages": {
+    "masai_mara_migration": {
+      "title": "Expérience de Migration au Masai Mara",
+      "description": "Soyez témoin du plus grand spectacle de la faune sauvage au monde."
+    },
+    "diani_beach_escape": {
+      "title": "Évasion à la Plage de Diani",
+      "description": "Détendez-vous sur les sables blancs immaculés de Diani."
+    },
+    "amboseli_elephants": {
+      "title": "Safari des Éléphants d'Amboseli",
+      "description": "Approchez de près des troupeaux de géants."
+    }
+  }
+}

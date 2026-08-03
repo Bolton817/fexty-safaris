@@ -1,0 +1,125 @@
+{
+  "Navbar": {
+    "Home": "Startseite",
+    "Destinations": "Reiseziele",
+    "Deals": "Angebote",
+    "Services": "Dienstleistungen",
+    "About": "Über Uns",
+    "Search": "Suche",
+    "InquireNow": "Jetzt Anfragen",
+    "DestinationsMenu": {
+      "kenyaTitle": "Magisches Kenia",
+      "coastTitle": "Tembo Küste",
+      "bordersTitle": "Über die Grenzen Hinaus",
+      "maasaiMara": "Maasai Mara",
+      "amboseli": "Amboseli",
+      "naivasha": "Naivasha",
+      "nakuru": "Nakuru",
+      "nairobiStaycations": "Nairobi Aufenthalte",
+      "dianiBeach": "Diani Beach",
+      "mombasa": "Mombasa",
+      "malindi": "Malindi",
+      "watamu": "Watamu",
+      "lamu": "Lamu",
+      "dubai": "Dubai",
+      "maldives": "Malediven",
+      "bali": "Bali",
+      "malaysiaSingapore": "Malaysia/Singapur",
+      "europe": "Europa",
+      "capeTown": "Kapstadt"
+    },
+    "DealsMenu": {
+      "bushSafari": "Busch & Safari",
+      "beachEscapes": "Strandurlaube",
+      "romanceHoneymoons": "Romantik & Flitterwochen",
+      "adventureAlpine": "Abenteuer & Berge",
+      "corporateMice": "Firmen-Events",
+      "desc": "Entdecken Sie maßgeschneiderte Erlebnisse perfekt für Ihren Stil."
+    },
+    "ServicesMenu": {
+      "flightBookings": "Flugbuchungen",
+      "visaPassport": "Visum & Pass",
+      "desc": "Professionelle Unterstützung durch unsere Reiseexperten."
+    },
+    "Languages": {
+      "en": "English",
+      "sw": "Kiswahili",
+      "fr": "Français",
+      "es": "Español",
+      "de": "Deutsch",
+      "zh": "中文",
+      "ar": "العربية"
+    }
+  },
+  "Footer": {
+    "desc": "Begeben Sie sich auf unvergessliche Reisen durch Afrika. Erleben Sie die Wildnis in Luxus und Komfort mit Fexty Safaris.",
+    "quickLinks": "Schnellzugriff",
+    "destinations": "Reiseziele",
+    "contactInfo": "Kontakt",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "Home": {
+    "heroTag": "ENTDECKE DIE WILDNIS",
+    "heroTitle1": "Premium Safaris",
+    "heroTitle2": "Jenseits der Vorstellung",
+    "heroDesc": "Erleben Sie kuratierte Abenteuer in atemberaubenden Landschaften.",
+    "exploreDestinations": "Ziele Entdecken",
+    "viewDeals": "Angebote Ansehen",
+    "curatedTitle": "Ausgewählte Erlebnisse",
+    "curatedDesc": "Von aufregenden Migrationen bis hin zu ruhigen Stränden.",
+    "noPackages": "Neue Erlebnisse werden erstellt.",
+    "checkBack": "Schauen Sie bald wieder vorbei für unsere neuesten Safaris!"
+  },
+  "About": {
+    "title": "Über Fexty Safaris",
+    "subtitle": "Unvergessliche Reisen seit 2010.",
+    "p1": "Fexty Safaris entstand aus einer tiefen Liebe zur afrikanischen Wildnis.",
+    "p2": "Unser Team von erfahrenen Guides verfügt über intime Kenntnisse der Landschaften.",
+    "whyChooseUs": "Warum uns wählen?",
+    "expertGuides": "Erfahrene Guides",
+    "expertGuidesDesc": "Unsere Guides sind hochqualifizierte Profis.",
+    "tailoredItineraries": "Maßgeschneiderte Routen",
+    "tailoredItinerariesDesc": "Wir kreieren maßgeschneiderte Reisen nach Ihren Interessen.",
+    "uncompromisedLuxury": "Kompromissloser Luxus",
+    "uncompromisedLuxuryDesc": "Erleben Sie die Wildnis, ohne auf Komfort zu verzichten."
+  },
+  "Contact": {
+    "title": "Kontaktieren Sie Uns",
+    "subtitle": "Bereit, Ihre Traum-Safari zu planen? Wir sind hier, um zu helfen.",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "location": "Standort",
+    "sendUsMessage": "Senden Sie uns eine Nachricht",
+    "nameLabel": "Vollständiger Name",
+    "emailLabel": "E-Mail-Adresse",
+    "subjectLabel": "Betreff",
+    "messageLabel": "Ihre Nachricht",
+    "sending": "Senden...",
+    "sendMessage": "Nachricht Senden",
+    "successMessage": "Ihre Nachricht wurde erfolgreich gesendet!"
+  },
+  "Package": {
+    "startingFrom": "Ab",
+    "noImage": "Kein Bild",
+    "duration": "Dauer",
+    "bookNow": "Diese Safari Buchen",
+    "overview": "Übersicht",
+    "itinerary": "Reiseroute",
+    "includes": "Inklusivleistungen",
+    "day": "Tag"
+  },
+  "DynamicPackages": {
+    "masai_mara_migration": {
+      "title": "Masai Mara Migration Erlebnis",
+      "description": "Erleben Sie das größte Wildtierspektakel der Welt."
+    },
+    "diani_beach_escape": {
+      "title": "Diani Strandurlaub",
+      "description": "Entspannen Sie an den unberührten weißen Sandstränden von Diani."
+    },
+    "amboseli_elephants": {
+      "title": "Amboseli Elefanten-Safari",
+      "description": "Erleben Sie riesige Elefantenherden vor dem Kilimandscharo."
+    }
+  }
+}

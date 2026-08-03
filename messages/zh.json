@@ -1,0 +1,125 @@
+{
+  "Navbar": {
+    "Home": "首页",
+    "Destinations": "目的地",
+    "Deals": "特价优惠",
+    "Services": "服务",
+    "About": "关于我们",
+    "Search": "搜索",
+    "InquireNow": "立即咨询",
+    "DestinationsMenu": {
+      "kenyaTitle": "神奇肯尼亚",
+      "coastTitle": "坦博海岸",
+      "bordersTitle": "超越国界",
+      "maasaiMara": "马赛马拉",
+      "amboseli": "安博塞利",
+      "naivasha": "纳瓦沙",
+      "nakuru": "纳库鲁",
+      "nairobiStaycations": "内罗毕度假",
+      "dianiBeach": "迪亚尼海滩",
+      "mombasa": "蒙巴萨",
+      "malindi": "马林迪",
+      "watamu": "瓦塔穆",
+      "lamu": "拉穆",
+      "dubai": "迪拜",
+      "maldives": "马尔代夫",
+      "bali": "巴厘岛",
+      "malaysiaSingapore": "马来西亚/新加坡",
+      "europe": "欧洲",
+      "capeTown": "开普敦"
+    },
+    "DealsMenu": {
+      "bushSafari": "丛林与野生动物园",
+      "beachEscapes": "海滩之旅",
+      "romanceHoneymoons": "浪漫与蜜月",
+      "adventureAlpine": "高山探险",
+      "corporateMice": "企业会议",
+      "desc": "探索完美适合您风格的定制体验。"
+    },
+    "ServicesMenu": {
+      "flightBookings": "机票预订",
+      "visaPassport": "签证和护照协助",
+      "desc": "来自我们专业旅行专家的协助。"
+    },
+    "Languages": {
+      "en": "English",
+      "sw": "Kiswahili",
+      "fr": "Français",
+      "es": "Español",
+      "de": "Deutsch",
+      "zh": "中文",
+      "ar": "العربية"
+    }
+  },
+  "Footer": {
+    "desc": "踏上穿越非洲的难忘之旅。通过Fexty Safaris在奢华与舒适中体验野外。",
+    "quickLinks": "快速链接",
+    "destinations": "目的地",
+    "contactInfo": "联系方式",
+    "rights": "版权所有。"
+  },
+  "Home": {
+    "heroTag": "探索荒野",
+    "heroTitle1": "高级游猎",
+    "heroTitle2": "超越想象",
+    "heroDesc": "在令人叹为观止的风景中展开定制冒险。在不打折扣的奢华中见证大自然最伟大的奇观。",
+    "exploreDestinations": "探索目的地",
+    "viewDeals": "查看优惠",
+    "curatedTitle": "精选体验",
+    "curatedDesc": "从惊心动魄的动物大迁徙到宁静的海滩之旅。",
+    "noPackages": "新的体验正在策划中。",
+    "checkBack": "请稍后回来查看我们最新的游猎套餐！"
+  },
+  "About": {
+    "title": "关于 Fexty Safaris",
+    "subtitle": "自2010年起策划难忘之旅。",
+    "p1": "Fexty Safaris 源于对非洲荒野的深厚热爱。",
+    "p2": "我们的导游团队对东非的风景有着深入的了解。",
+    "whyChooseUs": "为什么选择我们？",
+    "expertGuides": "专家导游",
+    "expertGuidesDesc": "我们的导游是经过严格培训的专业人士。",
+    "tailoredItineraries": "定制行程",
+    "tailoredItinerariesDesc": "我们根据您的兴趣量身定制旅程。",
+    "uncompromisedLuxury": "毫不妥协的奢华",
+    "uncompromisedLuxuryDesc": "在不牺牲舒适度的情况下体验野外。"
+  },
+  "Contact": {
+    "title": "联系我们",
+    "subtitle": "准备好开始计划您的梦想游猎了吗？",
+    "phone": "电话",
+    "email": "电子邮件",
+    "location": "地址",
+    "sendUsMessage": "发送信息",
+    "nameLabel": "全名",
+    "emailLabel": "电子邮箱",
+    "subjectLabel": "主题",
+    "messageLabel": "您的留言",
+    "sending": "发送中...",
+    "sendMessage": "发送留言",
+    "successMessage": "您的信息已成功发送！"
+  },
+  "Package": {
+    "startingFrom": "起价",
+    "noImage": "暂无图片",
+    "duration": "时长",
+    "bookNow": "预订此游猎",
+    "overview": "概览",
+    "itinerary": "行程",
+    "includes": "包含项目",
+    "day": "第几天"
+  },
+  "DynamicPackages": {
+    "masai_mara_migration": {
+      "title": "马赛马拉动物大迁徙体验",
+      "description": "见证地球上最伟大的野生动物奇观。"
+    },
+    "diani_beach_escape": {
+      "title": "迪亚尼海滩之旅",
+      "description": "在迪亚尼原始的白色沙滩上放松身心。"
+    },
+    "amboseli_elephants": {
+      "title": "安博塞利大象游猎",
+      "description": "在乞力马扎罗山的背景下近距离接触大象群。"
+    }
+  }
+}
