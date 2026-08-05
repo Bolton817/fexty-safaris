@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-savanna-50: #f2f7f4;
-  --color-savanna-100: #e1efe6;
-  --color-savanna-200: #c5dfd0;
-  --color-savanna-300: #9bc6ae;
-  --color-savanna-400: #6ca886;
-  --color-savanna-500: #4a8b68;
-  --color-savanna-600: #376e50;
-  --color-savanna-700: #2d5841;
-  --color-savanna-800: #254736;
-  --color-savanna-900: #1f3b2d;
-  --color-savanna-950: #102119;
+  --color-savanna-50: #edf5f5;
+  --color-savanna-100: #d1e6e6;
+  --color-savanna-200: #a8d1d1;
+  --color-savanna-300: #74b6b6;
+  --color-savanna-400: #489898;
+  --color-savanna-500: #2c7c7c;
+  --color-savanna-600: #226464;
+  --color-savanna-700: #1d5050;
+  --color-savanna-800: #0F6262;
+  --color-savanna-900: #0F6262;
+  --color-savanna-950: #0F6262;
 
-  --color-sunset-50: #fff8f1;
-  --color-sunset-100: #ffeedb;
-  --color-sunset-200: #ffdab3;
-  --color-sunset-300: #ffc080;
-  --color-sunset-400: #ff9d40;
-  --color-sunset-500: #ff7d0a;
-  --color-sunset-600: #f06100;
-  --color-sunset-700: #c74902;
-  --color-sunset-800: #9e390a;
-  --color-sunset-900: #7f310d;
-  --color-sunset-950: #451604;
+  --color-sunset-50: #fefcf3;
+  --color-sunset-100: #fcf6dc;
+  --color-sunset-200: #faedb5;
+  --color-sunset-300: #f7e089;
+  --color-sunset-400: #f5d15c;
+  --color-sunset-500: #F4C346;
+  --color-sunset-600: #dea427;
+  --color-sunset-700: #b97d1b;
+  --color-sunset-800: #98631c;
+  --color-sunset-900: #7e521b;
+  --color-sunset-950: #482b0b;
 
   --color-sand-50: #fdfdfc;
   --color-sand-100: #fbfbfa;

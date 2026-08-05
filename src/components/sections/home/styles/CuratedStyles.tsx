@@ -92,7 +92,7 @@ export default function CuratedStyles() {
                 <img src={style.image} alt={style.title} className="w-full h-full object-cover" />
               </div>
               <div className="p-6 flex flex-col items-start text-left">
-                <h4 className="text-xl font-bold text-green-700 mb-3">{style.title}</h4>
+                <h4 className="text-xl font-bold text-savanna-900 mb-3">{style.title}</h4>
                 <p className="text-sand-600 text-sm leading-relaxed mb-6">{style.description}</p>
                 <Link 
                   href={`/destinations?style=${style.id}`}
@@ -121,7 +121,7 @@ export default function CuratedStyles() {
                   className="min-h-[60vh] flex flex-col justify-center pr-8"
                 >
                   <div className={`transition-all duration-700 ease-in-out ${isActive ? 'opacity-100 translate-x-0' : 'opacity-30 -translate-x-4'}`}>
-                    <h4 className="text-3xl lg:text-4xl font-bold text-green-700 mb-6 leading-tight">
+                    <h4 className="text-3xl lg:text-4xl font-bold text-savanna-900 mb-6 leading-tight">
                       {style.title}
                     </h4>
                     <p className="text-sand-600 leading-relaxed text-lg mb-8 max-w-md">

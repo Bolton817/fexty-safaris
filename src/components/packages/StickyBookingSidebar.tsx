@@ -30,7 +30,7 @@ export default function StickyBookingSidebar({ kshPrice, usdPrice, duration }: S
           <input type="number" min="1" placeholder="Number of Guests" required className="w-full pl-10 pr-4 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:border-sunset-500 transition-all text-sm" />
         </div>
 
-        <button type="submit" className="w-full bg-green-700 hover:bg-green-800 text-white rounded-xl py-4 font-bold mt-2 shadow-lg hover:-translate-y-1 transition-all">
+        <button type="submit" className="w-full bg-savanna-800 hover:bg-savanna-950 text-white rounded-xl py-4 font-bold mt-2 shadow-lg hover:-translate-y-1 transition-all">
           Inquire About This Tour
         </button>
       </form>

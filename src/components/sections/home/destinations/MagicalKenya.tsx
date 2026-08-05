@@ -69,7 +69,7 @@ export default async function MagicalKenya() {
         </div>
 
         <div className="text-center">
-          <Link href="/destinations/magical-kenya" className="inline-flex items-center justify-center px-8 py-3.5 bg-green-700 hover:bg-green-800 text-white rounded-full font-bold tracking-widest uppercase text-xs transition-colors duration-300 group">
+          <Link href="/destinations/magical-kenya" className="inline-flex items-center justify-center px-8 py-3.5 bg-savanna-800 hover:bg-savanna-950 text-white rounded-full font-bold tracking-widest uppercase text-xs transition-colors duration-300 group">
             Explore All Kenya Safaris
             <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </Link>
