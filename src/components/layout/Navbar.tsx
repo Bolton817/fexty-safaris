@@ -92,6 +92,7 @@ export default function Navbar() {
   };
 
   return (
+    <>
     <header 
       className={`sticky top-0 z-50 w-full transition-all duration-500 nav-header-container ${
         isScrolled || isMobileMenuOpen
@@ -281,57 +282,71 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Mobile Menu Drawer */}
       <div 
-        className={`fixed inset-0 top-20 bg-white z-40 overflow-y-auto transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-white z-[60] overflow-y-auto transition-transform duration-300 lg:hidden flex flex-col ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col p-6 space-y-2 mobile-menu-container">
+        <div className="flex items-center justify-between p-4 border-b border-sand-100 shadow-sm h-20">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="h-full flex items-center">
+            <img src="/logo-dark.png" alt="Fexty Safaris" className="h-10 w-auto object-cover" />
+          </Link>
+          <button 
+            className="p-2 text-sand-800 focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Close Menu"
+          >
+            <X className="w-8 h-8" />
+          </button>
+        </div>
+
+        <div className="flex flex-col p-6 space-y-1 mobile-menu-container flex-grow text-left">
           
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 text-lg font-bold text-savanna-900 border-b border-sand-100">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 text-base font-medium text-savanna-900 border-b border-sand-100 text-left">
             {t('Home')}
           </Link>
 
           {/* Mobile Accordion: Destinations */}
-          <div className="border-b border-sand-100 py-2">
+          <div className="border-b border-sand-100 py-1">
             <button 
               onClick={() => toggleAccordion('destinations')}
-              className="flex items-center justify-between w-full py-3 text-lg font-bold text-savanna-900"
+              className="flex items-center justify-between w-full py-3 text-base font-medium text-savanna-900 text-left text-left"
             >
               {t('Destinations')}
               <ChevronDown className={`w-5 h-5 transition-transform ${activeMobileAccordion === 'destinations' ? 'rotate-180 text-sunset-500' : 'text-sand-400'}`} />
             </button>
             <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'destinations' ? 'max-h-[1000px] opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
-              <div className="pl-4 space-y-6 pt-2">
+              <div className="pl-3 space-y-5 pt-1 text-left">
                 <div>
-                  <Link href="/destinations/kenya" onClick={() => setIsMobileMenuOpen(false)} className="block">
-                    <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.kenya.titleKey as any)}</h4>
+                  <Link href="/destinations/kenya" onClick={() => setIsMobileMenuOpen(false)} className="block text-left">
+                    <h4 className="text-sunset-600 font-medium mb-1.5 text-sm">{t(DESTINATION_KEYS.kenya.titleKey as any)}</h4>
                   </Link>
-                  <ul className="space-y-2 border-l border-sand-200 pl-4">
+                  <ul className="space-y-1 border-l border-sand-200 pl-4 text-left">
                     {DESTINATION_KEYS.kenya.items.map(item => (
-                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/kenya#${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
+                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/kenya#${item.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(item.key as any)}</Link></li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <Link href="/destinations/coast" onClick={() => setIsMobileMenuOpen(false)} className="block">
-                    <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.coast.titleKey as any)}</h4>
+                  <Link href="/destinations/coast" onClick={() => setIsMobileMenuOpen(false)} className="block text-left">
+                    <h4 className="text-sunset-600 font-medium mb-1.5 text-sm">{t(DESTINATION_KEYS.coast.titleKey as any)}</h4>
                   </Link>
-                  <ul className="space-y-2 border-l border-sand-200 pl-4">
+                  <ul className="space-y-1 border-l border-sand-200 pl-4 text-left">
                     {DESTINATION_KEYS.coast.items.map(item => (
-                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/coast#${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
+                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/coast#${item.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(item.key as any)}</Link></li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <Link href="/destinations/borders" onClick={() => setIsMobileMenuOpen(false)} className="block">
-                    <h4 className="text-sunset-600 font-semibold mb-2">{t(DESTINATION_KEYS.borders.titleKey as any)}</h4>
+                  <Link href="/destinations/borders" onClick={() => setIsMobileMenuOpen(false)} className="block text-left">
+                    <h4 className="text-sunset-600 font-medium mb-1.5 text-sm">{t(DESTINATION_KEYS.borders.titleKey as any)}</h4>
                   </Link>
-                  <ul className="space-y-2 border-l border-sand-200 pl-4">
+                  <ul className="space-y-1 border-l border-sand-200 pl-4 text-left">
                     {DESTINATION_KEYS.borders.items.map(item => (
-                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/borders#${item.slug}`} className="block py-1 text-sand-700">{t(item.key as any)}</Link></li>
+                      <li key={item.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/destinations/borders#${item.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(item.key as any)}</Link></li>
                     ))}
                   </ul>
                 </div>
@@ -343,15 +358,15 @@ export default function Navbar() {
           <div className="border-b border-sand-100 py-1">
             <button 
               onClick={() => toggleAccordion('themes')}
-              className="flex items-center justify-between w-full py-2 text-lg font-bold text-savanna-900"
+              className="flex items-center justify-between w-full py-3 text-base font-medium text-savanna-900 text-left text-left"
             >
-              <Link href="/deals" onClick={() => setIsMobileMenuOpen(false)}>{t('Deals')}</Link>
+              <Link href="/deals" onClick={() => setIsMobileMenuOpen(false)} className="text-left flex-1">{t('Deals')}</Link>
               <ChevronDown className={`w-5 h-5 transition-transform ${activeMobileAccordion === 'themes' ? 'rotate-180 text-sunset-500' : 'text-sand-400'}`} />
             </button>
-            <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'themes' ? 'max-h-96 opacity-100 pb-2' : 'max-h-0 opacity-0'}`}>
-              <ul className="space-y-1 pl-4 pt-1">
+            <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'themes' ? 'max-h-96 opacity-100 pb-3' : 'max-h-0 opacity-0'}`}>
+              <ul className="space-y-1 pl-3 pt-1 border-l border-sand-200 ml-3 text-left">
                 {THEME_KEYS.map(theme => (
-                  <li key={theme.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/deals#${theme.slug}`} className="block py-1 text-sand-700 border-b border-sand-50 last:border-0">{t(theme.key as any)}</Link></li>
+                  <li key={theme.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/deals#${theme.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(theme.key as any)}</Link></li>
                 ))}
               </ul>
             </div>
@@ -361,32 +376,32 @@ export default function Navbar() {
           <div className="border-b border-sand-100 py-1">
             <button 
               onClick={() => toggleAccordion('services')}
-              className="flex items-center justify-between w-full py-2 text-lg font-bold text-savanna-900"
+              className="flex items-center justify-between w-full py-3 text-base font-medium text-savanna-900 text-left text-left"
             >
               {t('Services')}
               <ChevronDown className={`w-5 h-5 transition-transform ${activeMobileAccordion === 'services' ? 'rotate-180 text-sunset-500' : 'text-sand-400'}`} />
             </button>
-            <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'services' ? 'max-h-48 opacity-100 pb-2' : 'max-h-0 opacity-0'}`}>
-              <ul className="space-y-1 pl-4 pt-1">
+            <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'services' ? 'max-h-48 opacity-100 pb-3' : 'max-h-0 opacity-0'}`}>
+              <ul className="space-y-1 pl-3 pt-1 border-l border-sand-200 ml-3 text-left">
                 {SERVICE_KEYS.map(service => (
-                  <li key={service.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/services/${service.slug}`} className="block py-1 text-sand-700 border-b border-sand-50 last:border-0">{t(service.key as any)}</Link></li>
+                  <li key={service.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/services/${service.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(service.key as any)}</Link></li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 text-lg font-bold text-savanna-900 border-b border-sand-100">
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 text-base font-medium text-savanna-900 border-b border-sand-100 text-left">
             {t('About')}
           </Link>
           
-          <div className="pt-8">
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="btn-primary rounded-xl py-4 block text-center w-full shadow-lg">
-              {t('InquireNow')}
-            </Link>
-          </div>
-          
+        </div>
+
+        <div className="p-6 mt-auto">
+          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="btn-primary rounded-xl py-3 block text-center w-full shadow-md text-base">
+            {t('InquireNow')}
+          </Link>
         </div>
       </div>
-    </header>
+    </>
   );
 }
