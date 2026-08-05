@@ -35,7 +35,7 @@ export default async function TemboCoastPage() {
         }
       }
       
-      const lowerCats = cats.map(c => c.toLowerCase());
+      const lowerCats = cats.map((c: string) => c.toLowerCase());
       const lowerTitle = (pkg.title || '').toLowerCase();
       const lowerDesc = (pkg.description || '').toLowerCase();
       

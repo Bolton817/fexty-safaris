@@ -29,7 +29,7 @@ export default async function MagicalKenyaPage() {
     // Filter packages where the category array contains the sub.id
     // To be extremely robust, we also check if the sub.title appears in the package title or description.
     const matchingPackages = packages.filter(pkg => {
-      let cats = [];
+      let cats: string[] = [];
       if (Array.isArray(pkg.category)) {
         cats = pkg.category;
       } else if (typeof pkg.category === 'string') {
@@ -40,7 +40,7 @@ export default async function MagicalKenyaPage() {
         }
       }
       
-      const lowerCats = cats.map(c => c.toLowerCase());
+      const lowerCats = cats.map((c: string) => c.toLowerCase());
       const lowerTitle = (pkg.title || '').toLowerCase();
       const lowerDesc = (pkg.description || '').toLowerCase();
       

@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { Plus, Edit2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import DeletePackageButton from '@/components/admin/DeletePackageButton';
@@ -7,7 +7,8 @@ import { supabase as supabaseAdmin } from '@/lib/supabase'; // Service role clie
 export const revalidate = 0; // Ensure admin dashboard is never fully cached
 
 export default async function PackagesDashboard() {
-  const { data: packages, error } = await supabaseAdmin
+  const supabase = await createClient();
+  const { data: packages, error } = await supabase
     .from('packages')
     .select('*')
     .order('created_at', { ascending: false });
