@@ -153,6 +153,7 @@ export default function PackageForm({ initialData }: PackageFormProps) {
     }
     
     if (res.success) {
+      router.refresh();
       router.push('/admin/dashboard/packages');
     } else {
       setErrorMsg(res.error || 'Failed to save package');

@@ -2,8 +2,10 @@ import { Link } from '@/i18n/routing';
 import { ArrowRight, Clock } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import PriceDisplay from '@/components/PriceDisplay';
+import { getTranslations } from 'next-intl/server';
 
 export default async function TemboCoast() {
+  const t = await getTranslations('HomepageSections');
   const supabase = await createClient();
   const { data: coastPackages } = await supabase
     .from('packages')
@@ -13,10 +15,8 @@ export default async function TemboCoast() {
 
   const packages = coastPackages || [];
   
-  // Use the first package's image for the large hero image if available, else a fallback
-  const heroImage = packages.length > 0 
-    ? (packages[0].image_url || 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')
-    : 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+  // Use the custom uploaded image for the Tembo Coast section
+  const heroImage = '/images/tembo-coast.jpg';
 
   return (
     <section className="py-16 bg-white border-t border-sand-100">
@@ -24,9 +24,9 @@ export default async function TemboCoast() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">Pristine White Sands</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight">
-              The Tembo Coast
+            <h2 className="text-[10px] font-bold text-sunset-400 tracking-[0.2em] uppercase mb-2">{t('coastSub')}</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
+              {t('coastTitle')}
             </h3>
           </div>
         </div>
@@ -50,12 +50,14 @@ export default async function TemboCoast() {
                 </div>
                 <div className="w-2/3 md:w-3/5 p-4 md:p-6 flex flex-col justify-center">
                   <h4 className="text-lg md:text-xl font-bold text-savanna-950 mb-2 group-hover:text-sunset-500 transition-colors line-clamp-1">{pkg.title}</h4>
-                  <div className="flex items-center gap-3 text-xs text-sand-500 font-bold tracking-wider mb-2">
+                  <div className="flex items-center gap-3 text-xs text-sand-500 font-bold tracking-wider mb-2 md:mb-3">
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-sunset-500" /> {pkg.duration}</span>
                   </div>
-                  <span className="text-sunset-500 font-bold text-sm">
-                    From <PriceDisplay ksh={pkg.ksh_price} usd={pkg.usd_price} />
-                  </span>
+                  <div className="mt-auto">
+                    <span className="inline-flex items-center bg-savanna-900 text-white text-[10px] md:text-xs font-bold tracking-widest px-2 py-1 rounded">
+                      <PriceDisplay ksh={pkg.ksh_price} usd={pkg.usd_price} />
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -63,10 +65,9 @@ export default async function TemboCoast() {
 
         </div>
 
-        <div className="text-center">
-          <Link href="/destinations/coast" className="inline-flex items-center justify-center px-8 py-3.5 bg-savanna-800 hover:bg-savanna-950 text-white rounded-full font-bold tracking-widest uppercase text-xs transition-colors duration-300 group">
-            Discover Coastal Escapes
-            <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+        <div className="text-center mt-12">
+          <Link href="/destinations/coast" className="inline-flex items-center gap-2 text-sand-100 font-bold hover:text-sunset-400 transition-colors uppercase tracking-wider text-sm">
+            {t('coastViewAll')} <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
 

@@ -9,25 +9,25 @@ const archetypes = [
     id: 'safari-bush',
     title: 'Safari & Bush',
     description: 'Immerse yourself in the heart of the savanna with thrilling game drives, close encounters with the Big Five, and nights spent under star-studded skies. Experience the raw beauty of untamed wilderness with our expert guides who bring the bush to life.',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    image: '/images/curated-safari.jpg'
   },
   {
     id: 'beach-escapes',
     title: 'Beach Escapes',
     description: 'Unwind with barefoot luxury on the pristine white sands of the Indian Ocean. From secluded private villas to vibrant coral reefs perfect for diving, let the rhythmic waves and tropical breeze wash away your stress in these idyllic coastal paradises.',
-    image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    image: '/images/curated-beach.jpg'
   },
   {
     id: 'romance',
     title: 'Romance & Honeymoon',
     description: 'Celebrate your love with intimate retreats tailored for unforgettable beginnings. Enjoy secluded sundowners, private bush dinners by candlelight, and luxurious lodges offering unparalleled privacy, creating the perfect backdrop for your romantic getaway.',
-    image: 'https://images.unsplash.com/photo-1518709779341-56cf4535e94b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    image: '/images/curated-romance.jpg'
   },
   {
     id: 'group-departures',
     title: 'Group Departures',
     description: 'Embark on shared adventures designed with logistical perfection for large parties or families. Build lifelong connections as you explore extraordinary landscapes together, all while enjoying seamless coordination and exclusive group-friendly accommodations.',
-    image: 'https://images.unsplash.com/photo-1547471080-7cb2cb6a5a36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    image: '/images/curated-group.jpg'
   }
 ];
 

@@ -12,7 +12,7 @@ export default function AdminLayout({
         <h2 className="text-2xl font-bold mb-8">Admin Panel</h2>
         <nav className="space-y-4">
           <Link href="/admin/dashboard/packages" className="block text-sunset-400 font-medium">Dashboard</Link>
-          <Link href="/" className="block text-sand-400 hover:text-white transition-colors">View Site</Link>
+          <Link href="/" target="_blank" rel="noopener noreferrer" className="block text-sand-400 hover:text-white transition-colors">View Site</Link>
         </nav>
       </aside>
       

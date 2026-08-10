@@ -2,6 +2,26 @@
 
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 import { Menu, Search, ChevronDown, X, MapPin, Compass, Briefcase } from 'lucide-react';
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const FacebookIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 import { useTranslations, useLocale } from 'next-intl';
 import { useCurrencyStore } from '@/store/currencyStore';
 import { useState, useEffect } from 'react';
@@ -49,8 +69,14 @@ const THEME_KEYS = [
 ];
 
 const SERVICE_KEYS = [
-  { key: 'ServicesMenu.flightBookings', slug: 'flight-bookings' },
-  { key: 'ServicesMenu.visaPassport', slug: 'visa-passport' }
+  { key: 'ServicesMenu.customizedTourPackages', slug: 'customized-tour-packages' },
+  { key: 'ServicesMenu.groupTours', slug: 'group-tours' },
+  { key: 'ServicesMenu.corporateTravel', slug: 'corporate-travel' },
+  { key: 'ServicesMenu.honeymoonRomanticGetaways', slug: 'honeymoon-romantic-getaways' },
+  { key: 'ServicesMenu.destinationWeddings', slug: 'destination-weddings' },
+  { key: 'ServicesMenu.ticketingVisaServices', slug: 'ticketing-visa-services' },
+  { key: 'ServicesMenu.cruisePackages', slug: 'cruise-packages' },
+  { key: 'ServicesMenu.adventureTravel', slug: 'adventure-travel' }
 ];
 
 const LOCALES = ['en', 'sw', 'fr', 'es', 'de', 'zh', 'ar'];
@@ -63,19 +89,15 @@ export default function Navbar() {
   const { currency, setCurrency } = useCurrencyStore();
   
   const [mounted, setMounted] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileAccordion, setActiveMobileAccordion] = useState<string | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent scrolling when mobile menu is open
@@ -91,14 +113,56 @@ export default function Navbar() {
     setActiveMobileAccordion(prev => prev === name ? null : name);
   };
 
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    }
+  };
+
   return (
     <>
+    {/* Top Contact Strip (Desktop) */}
+    <div className="w-full bg-savanna-950 text-white text-xs py-2 hidden md:block">
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="flex items-center gap-4">
+          <a href="mailto:deals@fextysafaris.com" className="hover:text-sunset-500 transition-colors">deals@fextysafaris.com</a>
+          <span className="text-sand-400">|</span>
+          <a href="tel:+254727202093" className="hover:text-sunset-500 transition-colors">+254 727 202 093</a>
+        </div>
+        <div className="flex items-center gap-4">
+          <a href="#" className="hover:text-sunset-500 transition-colors group" aria-label="Instagram">
+            <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
+          </a>
+          <a href="#" className="hover:text-sunset-500 transition-colors group" aria-label="Facebook">
+            <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
+          </a>
+          <a href="#" className="hover:text-sunset-500 transition-colors group" aria-label="TikTok">
+            <TikTokIcon className="w-4 h-4 text-white hover:text-cyan-400" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Top Contact Strip (Mobile - Icons Only) */}
+    <div className="w-full bg-savanna-950 text-white py-2 md:hidden">
+      <div className="container mx-auto px-4 flex justify-center items-center gap-6">
+        <a href="#" className="transition-colors group" aria-label="Instagram">
+          <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
+        </a>
+        <a href="#" className="transition-colors group" aria-label="Facebook">
+          <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
+        </a>
+        <a href="#" className="transition-colors group" aria-label="TikTok">
+          <TikTokIcon className="w-4 h-4 text-white hover:text-cyan-400" />
+        </a>
+      </div>
+    </div>
+
     <header 
-      className={`sticky top-0 z-50 w-full transition-all duration-500 nav-header-container ${
-        isScrolled || isMobileMenuOpen
-          ? 'bg-white/90 backdrop-blur-md border-b border-sand-200 shadow-sm text-sand-800' 
-          : 'bg-gradient-to-r from-savanna-950 via-savanna-900 to-savanna-800 text-white shadow-xl border-b-2 border-sunset-500/20'
-      }`}
+      className="sticky top-0 z-50 w-full transition-all duration-500 nav-header-container bg-white/95 backdrop-blur-md border-b border-sand-200 shadow-sm text-sand-800"
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         
@@ -106,7 +170,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 xl:gap-8 h-full">
           <Link href="/" className="flex items-center h-full -ml-4 nav-logo">
             <img 
-              src={isScrolled || isMobileMenuOpen ? "/logo-dark.png" : "/logo-light.png"} 
+              src="/logo-dark.png" 
               alt="Fexty Safaris" 
               className="h-full w-auto object-cover transition-opacity duration-300" 
             />
@@ -115,13 +179,13 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 h-full nav-desktop-menu">
             
-            <Link href="/" className={`px-2 xl:px-3 font-medium transition-colors ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
+            <Link href="/" className="px-2 xl:px-3 font-medium transition-colors text-sand-800 hover:text-sunset-500">
               {t('Home')}
             </Link>
 
             {/* Mega Menu: Destinations */}
             <div className="group h-full flex items-center px-2 xl:px-3 mega-menu-trigger">
-              <button className={`flex items-center gap-1 font-medium transition-colors h-full outline-none ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
+              <button className="flex items-center gap-1 font-medium transition-colors h-full outline-none text-sand-800 hover:text-sunset-500">
                 {t('Destinations')} <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
               </button>
               
@@ -180,7 +244,7 @@ export default function Navbar() {
 
             {/* Mega Menu: Themes */}
             <div className="group h-full flex items-center px-2 xl:px-3 mega-menu-trigger">
-              <Link href="/deals" className={`flex items-center gap-1 font-medium transition-colors h-full outline-none ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
+              <Link href="/deals" className="flex items-center gap-1 font-medium transition-colors h-full outline-none text-sand-800 hover:text-sunset-500">
                 {t('Deals')} <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
               </Link>
               
@@ -200,22 +264,17 @@ export default function Navbar() {
 
             {/* Mega Menu: Services */}
             <div className="group h-full flex items-center px-2 xl:px-3 mega-menu-trigger">
-              <button className={`flex items-center gap-1 font-medium transition-colors h-full outline-none ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
+              <Link href="/services" className="flex items-center gap-1 font-medium transition-colors h-full outline-none text-sand-800 hover:text-sunset-500">
                 {t('Services')} <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-              </button>
+              </Link>
               
               <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-sand-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 mega-menu-panel">
                 <div className="container mx-auto px-4 py-8">
-                  <div className="grid grid-cols-2 gap-8 max-w-4xl">
+                  <div className="grid grid-cols-4 gap-6">
                     {SERVICE_KEYS.map(service => (
-                      <Link href={`/services/${service.slug}`} key={service.slug} className="flex items-center gap-6 p-6 border border-sand-200 rounded-2xl hover:border-sunset-500 hover:shadow-md transition-all mega-menu-item">
-                        <div className="w-16 h-16 bg-savanna-50 rounded-full flex items-center justify-center shrink-0">
-                          <Briefcase className="w-8 h-8 text-sunset-500" />
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-bold text-savanna-900 mb-2">{t(service.key as any)}</h4>
-                          <p className="text-sand-600">{t('ServicesMenu.desc')}</p>
-                        </div>
+                      <Link href={`/services#${service.slug}`} key={service.slug} className="bg-sand-50 rounded-xl p-6 hover:bg-sunset-50 transition-colors group/card cursor-pointer mega-menu-item block">
+                        <h4 className="font-bold text-savanna-900 group-hover/card:text-sunset-600 transition-colors mb-2">{t(service.key as any)}</h4>
+                        <p className="text-sm text-sand-600">{t('ServicesMenu.desc')}</p>
                       </Link>
                     ))}
                   </div>
@@ -223,7 +282,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/about" className={`px-2 xl:px-3 font-medium transition-colors ${isScrolled ? 'text-sand-800 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`}>
+            <Link href="/about" className="px-2 xl:px-3 font-medium transition-colors text-sand-800 hover:text-sunset-500">
               {t('About')}
             </Link>
           </nav>
@@ -234,26 +293,55 @@ export default function Navbar() {
           <div className="flex items-center gap-4 mr-2">
             {/* Currency Toggle */}
             {mounted && (
-              <select 
-                value={currency} 
-                onChange={(e) => setCurrency(e.target.value as 'KSH' | 'USD')}
-                className={`bg-transparent text-sm font-medium focus:outline-none cursor-pointer nav-currency-toggle ${isScrolled || isMobileMenuOpen ? 'text-sand-800' : 'text-white'}`}
+              <div 
+                className="relative flex items-center h-full cursor-pointer"
+                onMouseEnter={() => setIsCurrencyOpen(true)}
+                onMouseLeave={() => setIsCurrencyOpen(false)}
               >
-                <option value="KSH" className="text-black">KSH</option>
-                <option value="USD" className="text-black">USD</option>
-              </select>
+                <button 
+                  className="flex items-center gap-1 text-sm font-medium focus:outline-none uppercase text-sand-800"
+                  onClick={() => setIsCurrencyOpen(!isCurrencyOpen)}
+                >
+                  {currency} <ChevronDown className="w-3 h-3" />
+                </button>
+                <div className={`absolute top-[150%] right-0 mt-1 w-24 bg-white shadow-xl border border-sand-100 rounded-lg transition-all duration-300 transform overflow-hidden py-1 z-50 ${isCurrencyOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                  {['KSH', 'USD'].map(curr => (
+                    <button 
+                      key={curr}
+                      onClick={() => {
+                        setCurrency(curr as 'KSH' | 'USD');
+                        setIsCurrencyOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-sm hover:bg-sand-50 transition-colors ${currency === curr ? 'font-bold text-sunset-500 bg-sand-50/50' : 'text-savanna-900'}`}
+                    >
+                      {curr}
+                    </button>
+                  ))}
+                </div>
+              </div>
             )}
             
-            {/* Language Toggle (Hover Dropdown) */}
-            <div className="relative group/lang flex items-center h-full cursor-pointer">
-              <button className={`flex items-center gap-1 text-sm font-medium focus:outline-none uppercase ${isScrolled || isMobileMenuOpen ? 'text-sand-800' : 'text-white'}`}>
+            {/* Language Toggle */}
+            <div 
+              className="relative flex items-center h-full cursor-pointer"
+              onMouseEnter={() => setIsLangOpen(true)}
+              onMouseLeave={() => setIsLangOpen(false)}
+            >
+              <button 
+                className="flex items-center gap-1 text-sm font-medium focus:outline-none uppercase text-sand-800"
+                onClick={() => setIsLangOpen(!isLangOpen)}
+              >
                 {locale} <ChevronDown className="w-3 h-3" />
               </button>
-              <div className="absolute top-[150%] right-0 mt-1 w-32 bg-white shadow-xl border border-sand-100 rounded-lg opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-300 transform -translate-y-2 group-hover/lang:translate-y-0 overflow-hidden py-1 z-50">
+              <div className={`absolute top-[150%] right-0 mt-1 w-32 bg-white shadow-xl border border-sand-100 rounded-lg transition-all duration-300 transform overflow-hidden py-1 z-50 ${isLangOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                 {LOCALES.map(l => (
                   <button 
                     key={l}
-                    onClick={() => router.replace(pathname, { locale: l })}
+                    onClick={() => {
+                      const query = window.location.search;
+                      setIsLangOpen(false);
+                      router.replace(`${pathname}${query}` as any, { locale: l });
+                    }}
                     className={`block w-full text-left px-4 py-2 text-sm transition-colors ${locale === l ? 'bg-sunset-50 text-sunset-600 font-bold' : 'text-sand-700 hover:bg-sand-50 hover:text-savanna-900'}`}
                   >
                     {t(`Languages.${l}` as any)}
@@ -263,9 +351,34 @@ export default function Navbar() {
             </div>
           </div>
 
-          <button className={`p-2 transition-colors hidden lg:block nav-search-btn ${isScrolled ? 'text-sand-700 hover:text-sunset-500' : 'text-sand-200 hover:text-white'}`} aria-label={t('Search')}>
-            <Search className="w-5 h-5" />
-          </button>
+          <div className="relative hidden lg:block">
+            <button 
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="p-2 transition-colors nav-search-btn text-sand-700 hover:text-sunset-500" 
+              aria-label={t('Search')}
+            >
+              {isSearchOpen ? <X className="w-5 h-5" /> : <Search className="w-5 h-5" />}
+            </button>
+
+            {isSearchOpen && (
+              <form 
+                onSubmit={handleSearchSubmit}
+                className="absolute top-[150%] right-0 mt-2 w-64 bg-white shadow-xl border border-sand-100 rounded-xl p-2 flex items-center z-50 animate-in fade-in slide-in-from-top-2"
+              >
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search packages..."
+                  className="w-full bg-transparent text-sm focus:outline-none px-2 py-1 text-savanna-950"
+                  autoFocus
+                />
+                <button type="submit" className="text-sunset-500 p-1 hover:bg-sand-50 rounded-lg">
+                  <Search className="w-4 h-4" />
+                </button>
+              </form>
+            )}
+          </div>
           
           <div className="hidden lg:flex items-center gap-3 nav-cta-btn">
             <Link href="/contact" className="btn-primary rounded-full px-6 py-2.5">
@@ -274,7 +387,7 @@ export default function Navbar() {
           </div>
           
           <button 
-            className={`lg:hidden p-2 transition-colors nav-mobile-btn ${isScrolled || isMobileMenuOpen ? 'text-sand-800' : 'text-white'}`} 
+            className="lg:hidden p-2 transition-colors nav-mobile-btn text-sand-800" 
             aria-label="Mobile Menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -384,7 +497,7 @@ export default function Navbar() {
             <div className={`overflow-hidden transition-all duration-300 ${activeMobileAccordion === 'services' ? 'max-h-48 opacity-100 pb-3' : 'max-h-0 opacity-0'}`}>
               <ul className="space-y-1 pl-3 pt-1 border-l border-sand-200 ml-3 text-left">
                 {SERVICE_KEYS.map(service => (
-                  <li key={service.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/services/${service.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(service.key as any)}</Link></li>
+                  <li key={service.slug}><Link onClick={() => setIsMobileMenuOpen(false)} href={`/services#${service.slug}`} className="block py-1 text-sand-700 text-sm hover:text-sunset-500">{t(service.key as any)}</Link></li>
                 ))}
               </ul>
             </div>

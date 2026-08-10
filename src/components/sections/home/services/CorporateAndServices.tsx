@@ -24,7 +24,7 @@ export default function CorporateAndServices() {
           <div className="group relative rounded-2xl overflow-hidden bg-white border border-sand-200 hover:border-sunset-500 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row h-full">
             <div className="sm:w-2/5 h-48 sm:h-auto overflow-hidden relative flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                src="/images/corporate-mice.jpg" 
                 alt="Corporate MICE" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
               />
@@ -47,7 +47,7 @@ export default function CorporateAndServices() {
           <div className="group relative rounded-2xl overflow-hidden bg-white border border-sand-200 hover:border-sunset-500 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row h-full">
             <div className="sm:w-2/5 h-48 sm:h-auto overflow-hidden relative flex-shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                src="/images/educational-trips.jpg" 
                 alt="Educational Trips" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
               />

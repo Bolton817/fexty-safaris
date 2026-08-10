@@ -2,8 +2,10 @@ import { Link } from '@/i18n/routing';
 import { ArrowRight, Clock } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import PriceDisplay from '@/components/PriceDisplay';
+import { getTranslations } from 'next-intl/server';
 
 export default async function MagicalKenya() {
+  const t = await getTranslations('HomepageSections');
   const supabase = await createClient();
   const { data: kenyaPackages } = await supabase
     .from('packages')
@@ -21,9 +23,9 @@ export default async function MagicalKenya() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">The Heart of the Safari</h2>
+            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">{t('kenyaSub')}</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight">
-              Magical Kenya
+              {t('kenyaTitle')}
             </h3>
           </div>
         </div>
@@ -69,9 +71,8 @@ export default async function MagicalKenya() {
         </div>
 
         <div className="text-center">
-          <Link href="/destinations/magical-kenya" className="inline-flex items-center justify-center px-8 py-3.5 bg-savanna-800 hover:bg-savanna-950 text-white rounded-full font-bold tracking-widest uppercase text-xs transition-colors duration-300 group">
-            Explore All Kenya Safaris
-            <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+          <Link href="/destinations/kenya" className="inline-flex items-center gap-2 text-savanna-900 font-bold hover:text-sunset-500 transition-colors uppercase tracking-wider text-sm">
+            {t('kenyaViewAll')} <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
 

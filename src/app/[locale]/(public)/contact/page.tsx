@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { submitContactForm } from '@/lib/actions';
 import { useTranslations } from 'next-intl';
+import PageHero from '@/components/ui/PageHero';
 
 export default function ContactPage() {
   const t = useTranslations('Contact');
@@ -30,16 +31,25 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex-1 bg-background py-12 md:py-20">
-      <div className="container mx-auto px-4">
+    <div className="flex-1 flex flex-col bg-background">
+      
+      {/* Hero Section */}
+      <PageHero 
+        title={t('title')}
+        subtitle={t('subtitle')}
+        image="/images/contact-us-hero.jpg"
+      />
+
+      <div className="py-24">
+        <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-sm border border-sand-200 overflow-hidden flex flex-col md:flex-row">
           
           {/* Contact Details Side */}
           <div className="md:w-5/12 bg-savanna-950 text-white p-10 md:p-16 flex flex-col justify-between">
             <div>
-              <h2 className="text-3xl font-bold mb-6">{t('title')}</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('infoTitle')}</h2>
               <p className="text-sand-300 leading-relaxed mb-12">
-                {t('subtitle')}
+                {t('infoDesc')}
               </p>
               
               <div className="space-y-8">
@@ -118,8 +128,26 @@ export default function ContactPage() {
             )}
           </div>
           
+          
         </div>
       </div>
+      </div>
+
+      {/* Map Section */}
+      <section className="h-[400px] w-full bg-sand-100 mt-12">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.818451194215!2d36.8160!3d-1.2828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d6a04dbcd3!2sDelta%20House%2C%20University%20Way%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1690000000000!5m2!1sen!2ske" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={false} 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Fexty Safaris Location"
+          className="grayscale hover:grayscale-0 transition-all duration-700"
+        />
+      </section>
+
     </div>
   );
 }

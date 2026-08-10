@@ -2,16 +2,20 @@ import { createClient } from '@/lib/supabase/server';
 import { Link } from '@/i18n/routing';
 import { Clock, ArrowRight } from 'lucide-react';
 import PriceDisplay from '@/components/PriceDisplay';
+import PageHero from '@/components/ui/PageHero';
 
 export const revalidate = 3600; // ISR cache every hour
 
-// The sub-categories to display on this page, matching THEME_KEYS in Navbar
 const SUB_CATEGORIES = [
   { id: 'bush-safari', title: 'Bush Safari' },
   { id: 'beach-escapes', title: 'Beach Escapes' },
   { id: 'romance-honeymoons', title: 'Romance & Honeymoons' },
   { id: 'adventure-alpine', title: 'Adventure & Alpine' },
-  { id: 'corporate-mice', title: 'Corporate & MICE' }
+  { id: 'corporate-mice', title: 'Corporate & MICE' },
+  { id: 'customized-tour-packages', title: 'Customized Tours' },
+  { id: 'group-tours', title: 'Group Tours' },
+  { id: 'destination-weddings', title: 'Destination Weddings' },
+  { id: 'cruise-packages', title: 'Cruise Packages' }
 ];
 
 export default async function DealsPage() {
@@ -58,24 +62,12 @@ export default async function DealsPage() {
   return (
     <div className="flex-1 flex flex-col bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-savanna-950">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1549558549-415fe4c37b60?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-            alt="Exclusive Deals" 
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-savanna-950 via-savanna-950/60 to-transparent" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            Exclusive Deals & Themes
-          </h1>
-          <p className="text-lg md:text-xl text-sand-200 max-w-2xl mx-auto font-light leading-relaxed">
-            Discover our carefully curated selection of special offers tailored to your unique travel style.
-          </p>
-        </div>
-      </section>
+      <PageHero 
+        title="Exclusive Safari Deals"
+        subtitle="Discover our handpicked selection of premium tour packages tailored for unforgettable African adventures"
+        image="/images/deals-hero.jpg"
+        topLabel="Special Offers"
+      />
 
       {/* Dynamic Sections */}
       <div className="container mx-auto px-4 py-16 lg:py-24 space-y-24">

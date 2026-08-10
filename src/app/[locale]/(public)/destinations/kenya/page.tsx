@@ -1,7 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { Link } from '@/i18n/routing';
-import { Clock, ArrowRight } from 'lucide-react';
+import { Clock, ArrowRight, MapPin } from 'lucide-react';
 import PriceDisplay from '@/components/PriceDisplay';
+import PageHero from '@/components/ui/PageHero';
 
 export const revalidate = 3600; // ISR cache every hour
 
@@ -62,25 +63,13 @@ export default async function MagicalKenyaPage() {
 
   return (
     <div className="flex-1 flex flex-col bg-white">
-      {/* Normal Hero Section (Not full screen) */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-savanna-950">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-            alt="Magical Kenya" 
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-savanna-950 via-savanna-950/60 to-transparent" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            Magical Kenya
-          </h1>
-          <p className="text-lg md:text-xl text-sand-200 max-w-2xl mx-auto font-light leading-relaxed">
-            From the sweeping plains of the Maasai Mara to the shadow of Mount Kilimanjaro in Amboseli. Discover the heart of the safari.
-          </p>
-        </div>
-      </section>
+      {/* Hero Section */}
+      <PageHero 
+        title="Magical Kenya"
+        subtitle="Explore the heart of African wildlife, breathtaking savannahs, and iconic reserves."
+        image="/images/magical-kenya-hero.jpg"
+        topLabel="Destinations"
+      />
 
       {/* Dynamic Sections */}
       <div className="container mx-auto px-4 py-16 lg:py-24 space-y-24">

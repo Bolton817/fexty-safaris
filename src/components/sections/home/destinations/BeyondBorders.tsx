@@ -2,8 +2,10 @@ import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import PriceDisplay from '@/components/PriceDisplay';
+import { getTranslations } from 'next-intl/server';
 
 export default async function BeyondBorders() {
+  const t = await getTranslations('HomepageSections');
   const supabase = await createClient();
   const { data: beyondPackages } = await supabase
     .from('packages')
@@ -19,9 +21,9 @@ export default async function BeyondBorders() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">Wonders of East Africa</h2>
+            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">{t('bordersSub')}</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight">
-              Beyond Borders
+              {t('bordersTitle')}
             </h3>
           </div>
         </div>
@@ -50,10 +52,9 @@ export default async function BeyondBorders() {
           ))}
         </div>
 
-        <div className="text-center">
-          <Link href="/destinations/international" className="inline-flex items-center justify-center px-8 py-3.5 bg-savanna-800 hover:bg-savanna-950 text-white rounded-full font-bold tracking-widest uppercase text-xs transition-colors duration-300 group">
-            View Global Destinations
-            <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+        <div className="text-center mt-12">
+          <Link href="/destinations/borders" className="inline-flex items-center gap-2 text-savanna-900 font-bold hover:text-sunset-500 transition-colors uppercase tracking-wider text-sm">
+            {t('bordersViewAll')} <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
 
