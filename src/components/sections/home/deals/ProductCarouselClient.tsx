@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import PriceDisplay from '@/components/PriceDisplay';
 
@@ -58,6 +59,23 @@ function HomePackageCard({ pkg }: { pkg: Package }) {
 
 export default function ProductCarouselClient({ packages }: { packages: Package[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('HomepageSections');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          // Reset to start if we reached the end
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+        }
+      }
+    }, 4000); // auto scroll every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -77,13 +95,13 @@ export default function ProductCarouselClient({ packages }: { packages: Package[
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">Limited Time Offers</h2>
+            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">{t('dealsSub')}</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight">
-              Dynamic Deals
+              {t('dealsTitle')}
             </h3>
           </div>
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex gap-2">
+            <div className="flex gap-2">
               <button 
                 onClick={scrollLeft}
                 className="w-10 h-10 rounded-full border border-sand-200 flex items-center justify-center text-savanna-900 hover:bg-sunset-500 hover:text-white hover:border-sunset-500 transition-colors outline-none"

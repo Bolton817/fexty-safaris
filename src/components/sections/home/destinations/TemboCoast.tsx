@@ -25,7 +25,7 @@ export default async function TemboCoast() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-xl">
             <h2 className="text-[10px] font-bold text-sunset-400 tracking-[0.2em] uppercase mb-2">{t('coastSub')}</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
+            <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight">
               {t('coastTitle')}
             </h3>
           </div>

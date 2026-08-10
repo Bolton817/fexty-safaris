@@ -5,42 +5,42 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Search, MapPin, Compass, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const slides = [
-  {
-    image: '/images/hero-safari.jpg',
-    heading1: 'Endless Discoveries.',
-    heading2: 'Unforgettable Journeys.',
-    text: 'Curated luxury safaris tailored to your wildest dreams.',
-  },
-  {
-    image: '/images/hero-beach.jpg',
-    heading1: 'Pristine Shores.',
-    heading2: 'Tropical Bliss.',
-    text: 'Relax and rejuvenate on the breathtaking beaches of the Kenyan coast.',
-  },
-  {
-    image: '/images/hero-international.jpg',
-    heading1: 'Explore The World.',
-    heading2: 'Limitless Horizons.',
-    text: 'From the Maldives to Dubai, let us take you beyond borders.',
-  },
-  {
-    image: '/images/hero-romance.jpg',
-    heading1: 'Romantic Getaways.',
-    heading2: 'Forever Memories.',
-    text: 'Exclusive, intimate packages designed for your perfect honeymoon.',
-  },
-  {
-    image: '/images/hero-corporate.jpg',
-    heading1: 'Corporate Retreats.',
-    heading2: 'Seamless Execution.',
-    text: 'End-to-end travel solutions for business trips and conferences.',
-  }
-];
-
 export default function Hero() {
   const router = useRouter();
   const t = useTranslations('Hero');
+  
+  const slides = [
+    {
+      image: '/images/hero-safari.jpg',
+      heading1: t('slide1_h1'),
+      heading2: t('slide1_h2'),
+      text: t('slide1_text'),
+    },
+    {
+      image: '/images/hero-beach.jpg',
+      heading1: t('slide2_h1'),
+      heading2: t('slide2_h2'),
+      text: t('slide2_text'),
+    },
+    {
+      image: '/images/hero-international.jpg',
+      heading1: t('slide3_h1'),
+      heading2: t('slide3_h2'),
+      text: t('slide3_text'),
+    },
+    {
+      image: '/images/hero-romance.jpg',
+      heading1: t('slide4_h1'),
+      heading2: t('slide4_h2'),
+      text: t('slide4_text'),
+    },
+    {
+      image: '/images/hero-corporate.jpg',
+      heading1: t('slide5_h1'),
+      heading2: t('slide5_h2'),
+      text: t('slide5_text'),
+    }
+  ];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -156,67 +156,54 @@ export default function Hero() {
           onSubmit={handleSearch}
           className="w-full max-w-4xl bg-white/10 backdrop-blur-xl border border-white/20 p-2 rounded-[1.5rem] md:rounded-full shadow-2xl flex flex-col md:flex-row gap-2"
         >
-          
           <div className="flex-1 bg-white/90 backdrop-blur-md hover:bg-white rounded-xl md:rounded-full flex items-center px-4 py-3 focus-within:ring-2 focus-within:ring-sunset-500 transition-all cursor-pointer">
-            <MapPin className="w-5 h-5 text-sunset-500 mr-2 flex-shrink-0" />
-            <div className="flex-1 flex flex-col items-start">
-              <label htmlFor="destination" className="text-[10px] font-bold text-savanna-500 uppercase tracking-widest cursor-pointer">{t('searchDestination')}</label>
-              <select 
-                id="destination" 
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                className="w-full bg-transparent text-sm text-savanna-950 font-bold focus:outline-none cursor-pointer appearance-none"
-              >
-                <option value="">{t('searchWhere')}</option>
-                <option value="kenya">Magical Kenya</option>
-                <option value="coast">The Tembo Coast</option>
-                <option value="outbound">Beyond Borders</option>
-              </select>
-            </div>
+            <MapPin className="w-5 h-5 text-sunset-500 mr-3 shrink-0" />
+            <input 
+              type="text"
+              placeholder={t('searchDestination')}
+              className="w-full bg-transparent border-none outline-none text-savanna-950 placeholder:text-sand-500 font-medium"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+            />
           </div>
 
           <div className="flex-1 bg-white/90 backdrop-blur-md hover:bg-white rounded-xl md:rounded-full flex items-center px-4 py-3 focus-within:ring-2 focus-within:ring-sunset-500 transition-all cursor-pointer">
-            <Compass className="w-5 h-5 text-sunset-500 mr-2 flex-shrink-0" />
-            <div className="flex-1 flex flex-col items-start">
-              <label htmlFor="style" className="text-[10px] font-bold text-savanna-500 uppercase tracking-widest cursor-pointer">{t('searchStyle')}</label>
-              <select 
-                id="style" 
-                value={style}
-                onChange={(e) => setStyle(e.target.value)}
-                className="w-full bg-transparent text-sm text-savanna-950 font-bold focus:outline-none cursor-pointer appearance-none"
-              >
-                <option value="">{t('searchWhatType')}</option>
-                <option value="luxury">Luxury Safari</option>
-                <option value="beach">Beach Escape</option>
-                <option value="family">Family Adventure</option>
-                <option value="romance">Honeymoon</option>
-              </select>
-            </div>
+            <Compass className="w-5 h-5 text-sunset-500 mr-3 shrink-0" />
+            <select 
+              className="w-full bg-transparent border-none outline-none text-savanna-950 placeholder:text-sand-500 font-medium appearance-none cursor-pointer"
+              value={style}
+              onChange={(e) => setStyle(e.target.value)}
+            >
+              <option value="">{t('searchStyle')}</option>
+              <option value="safari">Safari & Bush</option>
+              <option value="beach">Beach Escapes</option>
+              <option value="romance">Romance & Honeymoon</option>
+              <option value="corporate">Corporate</option>
+            </select>
           </div>
 
           <div className="flex-1 bg-white/90 backdrop-blur-md hover:bg-white rounded-xl md:rounded-full flex items-center px-4 py-3 focus-within:ring-2 focus-within:ring-sunset-500 transition-all cursor-pointer">
-            <Clock className="w-5 h-5 text-sunset-500 mr-2 flex-shrink-0" />
-            <div className="flex-1 flex flex-col items-start">
-              <label htmlFor="duration" className="text-[10px] font-bold text-savanna-500 uppercase tracking-widest cursor-pointer">{t('searchDuration')}</label>
-              <select 
-                id="duration" 
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-                className="w-full bg-transparent text-sm text-savanna-950 font-bold focus:outline-none cursor-pointer appearance-none"
-              >
-                <option value="">{t('searchHowLong')}</option>
-                <option value="1-3">1 - 3 Days</option>
-                <option value="4-7">4 - 7 Days</option>
-                <option value="8+">8+ Days</option>
-              </select>
-            </div>
+            <Clock className="w-5 h-5 text-sunset-500 mr-3 shrink-0" />
+            <select 
+              className="w-full bg-transparent border-none outline-none text-savanna-950 placeholder:text-sand-500 font-medium appearance-none cursor-pointer"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+            >
+              <option value="">{t('searchDuration')}</option>
+              <option value="1-3">1-3 Days</option>
+              <option value="4-7">4-7 Days</option>
+              <option value="8-14">8-14 Days</option>
+              <option value="15+">15+ Days</option>
+            </select>
           </div>
 
-          <button type="submit" className="md:w-16 lg:w-28 bg-sunset-500 hover:bg-sunset-600 text-white rounded-xl md:rounded-full flex items-center justify-center py-3 transition-colors shadow-lg shadow-sunset-500/30 group">
-            <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            <span className="md:hidden lg:inline-block ml-2 font-bold text-sm">{t('searchBtn')}</span>
+          <button 
+            type="submit"
+            className="group bg-sunset-500 hover:bg-sunset-600 text-white rounded-xl md:rounded-full px-8 py-3 flex items-center justify-center font-bold transition-all shadow-lg hover:shadow-sunset-500/30"
+          >
+            <Search className="w-5 h-5 mr-2" />
+            {t('searchBtn')}
           </button>
-          
         </form>
         
         {/* Slide Indicators */}

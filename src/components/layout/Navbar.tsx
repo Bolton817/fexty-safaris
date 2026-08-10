@@ -126,38 +126,21 @@ export default function Navbar() {
     <>
     {/* Top Contact Strip (Desktop) */}
     <div className="w-full bg-savanna-950 text-white text-xs py-2 hidden md:block">
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-end items-center">
         <div className="flex items-center gap-4">
           <a href="mailto:deals@fextysafaris.com" className="hover:text-sunset-500 transition-colors">deals@fextysafaris.com</a>
           <span className="text-sand-400">|</span>
           <a href="tel:+254727202093" className="hover:text-sunset-500 transition-colors">+254 727 202 093</a>
         </div>
-        <div className="flex items-center gap-4">
-          <a href="#" className="hover:text-sunset-500 transition-colors group" aria-label="Instagram">
-            <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
-          </a>
-          <a href="#" className="hover:text-sunset-500 transition-colors group" aria-label="Facebook">
-            <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
-          </a>
-          <a href="#" className="hover:text-sunset-500 transition-colors group" aria-label="TikTok">
-            <TikTokIcon className="w-4 h-4 text-white hover:text-cyan-400" />
-          </a>
-        </div>
       </div>
     </div>
 
-    {/* Top Contact Strip (Mobile - Icons Only) */}
+    {/* Top Contact Strip (Mobile - Contact Info Only) */}
     <div className="w-full bg-savanna-950 text-white py-2 md:hidden">
-      <div className="container mx-auto px-4 flex justify-center items-center gap-6">
-        <a href="#" className="transition-colors group" aria-label="Instagram">
-          <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
-        </a>
-        <a href="#" className="transition-colors group" aria-label="Facebook">
-          <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
-        </a>
-        <a href="#" className="transition-colors group" aria-label="TikTok">
-          <TikTokIcon className="w-4 h-4 text-white hover:text-cyan-400" />
-        </a>
+      <div className="container mx-auto px-4 flex justify-center items-center gap-3 text-xs">
+        <a href="mailto:deals@fextysafaris.com" className="hover:text-sunset-500 transition-colors truncate">deals@fextysafaris.com</a>
+        <span className="text-sand-400 shrink-0">|</span>
+        <a href="tel:+254727202093" className="hover:text-sunset-500 transition-colors whitespace-nowrap">+254 727 202 093</a>
       </div>
     </div>
 
@@ -403,9 +386,9 @@ export default function Navbar() {
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between p-4 border-b border-sand-100 shadow-sm h-20">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="h-full flex items-center">
-            <img src="/logo-dark.png" alt="Fexty Safaris" className="h-10 w-auto object-cover" />
+        <div className="flex items-center justify-between px-4 border-b border-sand-100 shadow-sm h-24">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="h-full flex items-center -ml-4 py-2">
+            <img src="/logo-dark.png" alt="Fexty Safaris" className="h-[120%] w-auto object-contain transform origin-left ml-4" />
           </Link>
           <button 
             className="p-2 text-sand-800 focus:outline-none"

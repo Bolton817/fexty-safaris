@@ -6,12 +6,27 @@ import { submitContactForm } from '@/lib/actions';
 import { useTranslations } from 'next-intl';
 import PageHero from '@/components/ui/PageHero';
 
-export default function ContactPage() {
-  const t = useTranslations('Contact');
-  const tFooter = useTranslations('Footer');
-  
+import { Suspense, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+
+function ContactForm({ t }: { t: any }) {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const subject = searchParams.get('subject');
+    const date = searchParams.get('date');
+    const guests = searchParams.get('guests');
+
+    if (subject) {
+      let initialMsg = `I would like to inquire about:\n${subject}\n`;
+      if (date) initialMsg += `Proposed Date: ${date}\n`;
+      if (guests) initialMsg += `Number of Guests: ${guests}\n`;
+      setMessage(initialMsg);
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,12 +38,64 @@ export default function ContactPage() {
     if (result.success) {
       setSuccess(true);
       (e.target as HTMLFormElement).reset();
+      setMessage('');
     } else {
       alert(result.error);
     }
     
     setIsSubmitting(false);
   };
+
+  if (success) {
+    return (
+      <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center">
+        <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span className="text-2xl">✓</span>
+        </div>
+        <h4 className="text-xl font-bold mb-2">{t('successMessage')}</h4>
+        <button onClick={() => setSuccess(false)} className="mt-6 text-sunset-500 font-medium hover:underline">
+          {t('sendUsMessage')}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-savanna-800 mb-2">{t('nameLabel')}</label>
+        <input type="text" id="name" name="name" required className="w-full px-5 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 transition-shadow" placeholder="John Doe" />
+      </div>
+      
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-savanna-800 mb-2">{t('emailLabel')}</label>
+        <input type="email" id="email" name="email" required className="w-full px-5 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 transition-shadow" placeholder="john@example.com" />
+      </div>
+      
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-savanna-800 mb-2">{t('messageLabel')}</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          required 
+          rows={5} 
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="w-full px-5 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 transition-shadow resize-none" 
+          placeholder="..."
+        ></textarea>
+      </div>
+      
+      <button type="submit" disabled={isSubmitting} className="w-full btn-primary rounded-xl py-4 disabled:opacity-70 disabled:hover:scale-100 disabled:hover:-translate-y-0 disabled:hover:shadow-none disabled:pointer-events-none">
+        {isSubmitting ? t('sending') : t('sendMessage')}
+      </button>
+    </form>
+  );
+}
+
+export default function ContactPage() {
+  const t = useTranslations('Contact');
+  const tFooter = useTranslations('Footer');
 
   return (
     <div className="flex-1 flex flex-col bg-background">
@@ -93,39 +160,9 @@ export default function ContactPage() {
           {/* Form Side */}
           <div className="md:w-7/12 p-10 md:p-16 bg-white">
             <h3 className="text-2xl font-bold text-savanna-900 mb-8">{t('sendUsMessage')}</h3>
-            
-            {success ? (
-              <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">✓</span>
-                </div>
-                <h4 className="text-xl font-bold mb-2">{t('successMessage')}</h4>
-                <button onClick={() => setSuccess(false)} className="mt-6 text-sunset-500 font-medium hover:underline">
-                  {t('sendUsMessage')}
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-savanna-800 mb-2">{t('nameLabel')}</label>
-                  <input type="text" id="name" name="name" required className="w-full px-5 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 transition-shadow" placeholder="John Doe" />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-savanna-800 mb-2">{t('emailLabel')}</label>
-                  <input type="email" id="email" name="email" required className="w-full px-5 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 transition-shadow" placeholder="john@example.com" />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-savanna-800 mb-2">{t('messageLabel')}</label>
-                  <textarea id="message" name="message" required rows={5} className="w-full px-5 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500 transition-shadow resize-none" placeholder="..."></textarea>
-                </div>
-                
-                <button type="submit" disabled={isSubmitting} className="w-full btn-primary rounded-xl py-4 disabled:opacity-70 disabled:hover:scale-100 disabled:hover:-translate-y-0 disabled:hover:shadow-none disabled:pointer-events-none">
-                  {isSubmitting ? t('sending') : t('sendMessage')}
-                </button>
-              </form>
-            )}
+            <Suspense fallback={<div className="animate-pulse flex space-x-4"><div className="flex-1 space-y-6 py-1"><div className="h-2 bg-slate-200 rounded"></div><div className="space-y-3"><div className="grid grid-cols-3 gap-4"><div className="h-2 bg-slate-200 rounded col-span-2"></div><div className="h-2 bg-slate-200 rounded col-span-1"></div></div><div className="h-2 bg-slate-200 rounded"></div></div></div></div>}>
+              <ContactForm t={t} />
+            </Suspense>
           </div>
           
           

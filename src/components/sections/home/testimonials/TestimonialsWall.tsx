@@ -1,30 +1,34 @@
 import { Star, Quote, CheckCircle2 } from 'lucide-react';
-
-const testimonials = [
-  {
-    id: 1,
-    name: 'Sarah & James Thompson',
-    location: 'London, UK',
-    quote: 'Our honeymoon in the Masai Mara was nothing short of magical. The attention to detail from the Fexty team was extraordinary.',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Michael Chen',
-    location: 'Singapore',
-    quote: 'From the seamless airport transfers to the incredible wildlife spotting in Amboseli, everything was orchestrated perfectly.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'The Rodriguez Family',
-    location: 'Madrid, Spain',
-    quote: 'Traveling with children can be daunting, but our Fexty guide made the safari educational, safe, and incredibly fun for our kids.',
-    rating: 5,
-  },
-];
+import { useTranslations } from 'next-intl';
 
 export default function TestimonialsWall() {
+  const t = useTranslations('Testimonials');
+  const tHome = useTranslations('HomepageSections');
+  
+  const testimonials = [
+    {
+      id: 1,
+      name: t('test1_author'),
+      location: t('test1_role'),
+      quote: t('test1_text'),
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: t('test2_author'),
+      location: t('test2_role'),
+      quote: t('test2_text'),
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: t('test3_author'),
+      location: t('test3_role'),
+      quote: t('test3_text'),
+      rating: 5,
+    },
+  ];
+
   return (
     <section className="py-16 bg-white overflow-hidden relative">
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
@@ -32,9 +36,9 @@ export default function TestimonialsWall() {
         {/* Header & Trust Badge */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="max-w-xl">
-            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">Guest Experiences</h2>
+            <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">{tHome('testimonialsSub')}</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight">
-              Stories From The Wild
+              {tHome('testimonialsTitle')}
             </h3>
           </div>
           

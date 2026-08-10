@@ -1,16 +1,18 @@
 import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { Briefcase, GraduationCap, Plane, FileText, ArrowRight } from 'lucide-react';
 
 export default function CorporateAndServices() {
+  const t = useTranslations('HomepageSections');
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">Beyond Leisure</h2>
+          <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">{t('servicesSub')}</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight mb-4">
-            Logistical Excellence
+            {t('servicesTitle')}
           </h3>
           <p className="text-base text-sand-500 leading-relaxed font-light">
             Fexty Safaris specializes in tailoring complex travel operations for large groups, ensuring flawless execution.
@@ -33,12 +35,12 @@ export default function CorporateAndServices() {
               <div className="w-10 h-10 bg-savanna-50 rounded-full flex items-center justify-center text-savanna-900 mb-4">
                 <Briefcase className="w-5 h-5" />
               </div>
-              <h4 className="text-xl font-bold text-savanna-950 mb-2">Corporate MICE</h4>
+              <h4 className="text-xl font-bold text-savanna-950 mb-2">{t('corp_mice_title')}</h4>
               <p className="text-sand-500 text-xs leading-relaxed mb-4 flex-grow">
-                Reward top performers or host executive retreats. We handle ground logistics, luxury accommodations, and team-building perfectly.
+                {t('corp_mice_desc')}
               </p>
               <Link href="/contact" className="inline-flex items-center text-savanna-900 font-bold hover:text-sunset-500 transition-colors uppercase tracking-widest text-[10px]">
-                Request Proposal <ArrowRight className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+                {t('corp_btn_proposal')} <ArrowRight className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -56,12 +58,12 @@ export default function CorporateAndServices() {
               <div className="w-10 h-10 bg-sunset-50 rounded-full flex items-center justify-center text-sunset-500 mb-4">
                 <GraduationCap className="w-5 h-5" />
               </div>
-              <h4 className="text-xl font-bold text-savanna-950 mb-2">Educational Trips</h4>
+              <h4 className="text-xl font-bold text-savanna-950 mb-2">{t('corp_edu_title')}</h4>
               <p className="text-sand-500 text-xs leading-relaxed mb-4 flex-grow">
-                Transform the savanna into a classroom. We design safe, culturally immersive safaris tailored to curriculum objectives.
+                {t('corp_edu_desc')}
               </p>
-              <Link href="/contact" className="inline-flex items-center text-sunset-500 font-bold hover:text-sunset-600 transition-colors uppercase tracking-widest text-[10px]">
-                Contact Our Team <ArrowRight className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+              <Link href="/contact" className="inline-flex items-center text-savanna-900 font-bold hover:text-sunset-500 transition-colors uppercase tracking-widest text-[10px]">
+                {t('corp_btn_proposal')} <ArrowRight className="ml-2 w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -76,8 +78,8 @@ export default function CorporateAndServices() {
               <Plane className="w-5 h-5" />
             </div>
             <div className="flex-1">
-              <h4 className="text-base font-bold text-savanna-950 mb-0.5 group-hover:text-sunset-500 transition-colors">Flight Bookings</h4>
-              <p className="text-xs text-sand-500 line-clamp-1">Global connections and domestic routing.</p>
+              <h4 className="text-base font-bold text-savanna-950 mb-0.5 group-hover:text-sunset-500 transition-colors">{t('corp_flight_title')}</h4>
+              <p className="text-xs text-sand-500 line-clamp-1">{t('corp_flight_desc')}</p>
             </div>
             <ArrowRight className="w-4 h-4 text-sand-300 group-hover:text-sunset-500 transform group-hover:translate-x-1 transition-all" />
           </Link>
@@ -87,8 +89,8 @@ export default function CorporateAndServices() {
               <FileText className="w-5 h-5" />
             </div>
             <div className="flex-1">
-              <h4 className="text-base font-bold text-savanna-950 mb-0.5 group-hover:text-sunset-500 transition-colors">Visa Concierge</h4>
-              <p className="text-xs text-sand-500 line-clamp-1">Hassle-free eTA and East African visas.</p>
+              <h4 className="text-base font-bold text-savanna-950 mb-0.5 group-hover:text-sunset-500 transition-colors">{t('corp_visa_title')}</h4>
+              <p className="text-xs text-sand-500 line-clamp-1">{t('corp_visa_desc')}</p>
             </div>
             <ArrowRight className="w-4 h-4 text-sand-300 group-hover:text-sunset-500 transform group-hover:translate-x-1 transition-all" />
           </Link>

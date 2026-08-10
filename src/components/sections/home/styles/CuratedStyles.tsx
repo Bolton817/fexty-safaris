@@ -2,36 +2,39 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 
-const archetypes = [
-  {
-    id: 'safari-bush',
-    title: 'Safari & Bush',
-    description: 'Immerse yourself in the heart of the savanna with thrilling game drives, close encounters with the Big Five, and nights spent under star-studded skies. Experience the raw beauty of untamed wilderness with our expert guides who bring the bush to life.',
-    image: '/images/curated-safari.jpg'
-  },
-  {
-    id: 'beach-escapes',
-    title: 'Beach Escapes',
-    description: 'Unwind with barefoot luxury on the pristine white sands of the Indian Ocean. From secluded private villas to vibrant coral reefs perfect for diving, let the rhythmic waves and tropical breeze wash away your stress in these idyllic coastal paradises.',
-    image: '/images/curated-beach.jpg'
-  },
-  {
-    id: 'romance',
-    title: 'Romance & Honeymoon',
-    description: 'Celebrate your love with intimate retreats tailored for unforgettable beginnings. Enjoy secluded sundowners, private bush dinners by candlelight, and luxurious lodges offering unparalleled privacy, creating the perfect backdrop for your romantic getaway.',
-    image: '/images/curated-romance.jpg'
-  },
-  {
-    id: 'group-departures',
-    title: 'Group Departures',
-    description: 'Embark on shared adventures designed with logistical perfection for large parties or families. Build lifelong connections as you explore extraordinary landscapes together, all while enjoying seamless coordination and exclusive group-friendly accommodations.',
-    image: '/images/curated-group.jpg'
-  }
-];
-
 export default function CuratedStyles() {
+  const t = useTranslations('HomepageSections');
+  
+  const archetypes = [
+    {
+      id: 'safari-bush',
+      title: t('styles_safari_title'),
+      description: t('styles_safari_desc'),
+      image: '/images/curated-safari.jpg'
+    },
+    {
+      id: 'beach-escapes',
+      title: t('styles_beach_title'),
+      description: t('styles_beach_desc'),
+      image: '/images/curated-beach.jpg'
+    },
+    {
+      id: 'romance',
+      title: t('styles_romance_title'),
+      description: t('styles_romance_desc'),
+      image: '/images/curated-romance.jpg'
+    },
+    {
+      id: 'group-departures',
+      title: t('styles_group_title'),
+      description: t('styles_group_desc'),
+      image: '/images/curated-group.jpg'
+    }
+  ];
+
   const [activeId, setActiveId] = useState(archetypes[0].id);
   const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -72,9 +75,9 @@ export default function CuratedStyles() {
       <div className="container mx-auto px-4 max-w-7xl">
         
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">Traveler Archetypes</h2>
+          <h2 className="text-[10px] font-bold text-sunset-500 tracking-[0.2em] uppercase mb-2">{t('stylesSub')}</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-savanna-950 leading-tight tracking-tight mb-4">
-            Curated For You
+            {t('stylesTitle')}
           </h3>
           <p className="text-base text-sand-500 leading-relaxed font-light">
             Whether you seek the thrill of the hunt or the peace of the waves, we tailor the experience precisely to your travel style.

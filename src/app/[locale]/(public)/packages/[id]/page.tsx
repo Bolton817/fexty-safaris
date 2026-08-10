@@ -158,6 +158,7 @@ export default async function PackageDetails({ params }: { params: Promise<{ id:
               kshPrice={pkg.ksh_price} 
               usdPrice={pkg.usd_price} 
               duration={pkg.duration} 
+              packageTitle={title}
             />
           </div>
 
