@@ -55,7 +55,8 @@
       "de": "Deutsch",
       "zh": "中文",
       "ar": "العربية"
-    }
+    },
+    "Gallery": "画廊"
   },
   "Footer": {
     "desc": "踏上穿越非洲的难忘之旅。通过Fexty Safaris在奢华与舒适中体验野外。",
@@ -296,5 +297,23 @@
     "test3_text": "作为一名摄影师，我需要特定的拍摄角度。导游确切地知道应该在什么时间出现在什么地点。他们对动物行为的深刻了解让我拍到了我梦寐以求的照片。这真是一次世界级的体验。",
     "test3_author": "Elena Rodriguez",
     "test3_role": "野生动物摄影师"
+  },
+  "Gallery": {
+    "heroTitle": "真实客户体验与游猎图库",
+    "heroSubtitle": "由我们的旅客亲自捕捉的精彩瞬间 — 从阳光明媚的海滨度假和奢华酒店休闲，到壮丽的荒野野生动物与令人兴奋的探险旅程。",
+    "topLabel": "客户真实瞬间与游猎图库",
+    "filterAll": "全部照片",
+    "filterClient": "客户精彩瞬间",
+    "filterCoastal": "海滨与海滩度假村",
+    "filterDining": "美食与休闲时光",
+    "filterWildlife": "野生动物与游猎",
+    "filterAdventure": "探险与探索",
+    "ctaTitle": "准备好开启您的专属旅程了吗？",
+    "ctaSubtitle": "立即联系我们的定制旅游管家，开启属于您的梦幻海滨度假或非洲游猎探险。",
+    "ctaButton": "立即预订游猎之旅",
+    "stats1": "500+ 真实客户旅程",
+    "stats2": "25+ 特色异国目的地",
+    "stats3": "100% 量身定制行程",
+    "stats4": "五星级卓越热情待客"
   }
 }

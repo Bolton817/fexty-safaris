@@ -265,6 +265,10 @@ export default function Navbar() {
               </div>
             </div>
 
+            <Link href="/gallery" className="px-2 xl:px-3 font-medium transition-colors text-sand-800 hover:text-sunset-500">
+              {t('Gallery')}
+            </Link>
+
             <Link href="/about" className="px-2 xl:px-3 font-medium transition-colors text-sand-800 hover:text-sunset-500">
               {t('About')}
             </Link>
@@ -485,6 +489,10 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
+
+          <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 text-base font-medium text-savanna-900 border-b border-sand-100 text-left">
+            {t('Gallery')}
+          </Link>
 
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 text-base font-medium text-savanna-900 border-b border-sand-100 text-left">
             {t('About')}

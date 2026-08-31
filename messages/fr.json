@@ -55,7 +55,8 @@
       "de": "Deutsch",
       "zh": "中文",
       "ar": "العربية"
-    }
+    },
+    "Gallery": "Galerie"
   },
   "Footer": {
     "desc": "Embarquez pour des voyages inoubliables à travers l'Afrique. Découvrez la vie sauvage dans le luxe, le confort et la sécurité avec Fexty Safaris.",
@@ -296,5 +297,23 @@
     "test3_text": "En tant que photographe, j'avais besoin de configurations spécifiques. Les guides savaient exactement où être et quand. Leur connaissance approfondie du comportement animal m'a permis d'obtenir des clichés dont je ne pouvais que rêver. Une opération véritablement de classe mondiale.",
     "test3_author": "Elena Rodriguez",
     "test3_role": "Photographe animalier"
+  },
+  "Gallery": {
+    "heroTitle": "Expériences Clients & Galerie Safari",
+    "heroSubtitle": "Des moments authentiques capturés par nos voyageurs — des escapades côtières ensoleillées et séjours hôteliers de luxe à la faune sauvage de la savane.",
+    "topLabel": "MOMENTS CLIENTS & GALERIE PHOTOS",
+    "filterAll": "Toutes les photos",
+    "filterClient": "Moments Voyageurs",
+    "filterCoastal": "Séjours Côtiers & Plages",
+    "filterDining": "Gastronomie & Détente",
+    "filterWildlife": "Faune & Safaris",
+    "filterAdventure": "Aventure & Expéditions",
+    "ctaTitle": "Prêt à Créer Vos Propres Souvenirs ?",
+    "ctaSubtitle": "Contactez notre conciergerie de voyage pour commencer à planifier vos vacances côtières de rêve ou votre safari africain dès aujourd'hui.",
+    "ctaButton": "Réserver Votre Safari",
+    "stats1": "500+ Voyages Réalisés",
+    "stats2": "25+ Destinations Exotiques",
+    "stats3": "Itinéraires 100% Sur Mesure",
+    "stats4": "Hospitalité 5 Étoiles"
   }
 }

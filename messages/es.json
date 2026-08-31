@@ -55,7 +55,8 @@
       "de": "Deutsch",
       "zh": "中文",
       "ar": "العربية"
-    }
+    },
+    "Gallery": "Galería"
   },
   "Footer": {
     "desc": "Emprende viajes inolvidables por África. Experimenta la naturaleza salvaje con lujo y comodidad con Fexty Safaris.",
@@ -296,5 +297,23 @@
     "test3_text": "Como fotógrafa, necesitaba configuraciones específicas. Los guías sabían exactamente dónde estar y cuándo. Su profundo conocimiento del comportamiento animal me consiguió fotos con las que solo había soñado. Realmente una operación de clase mundial.",
     "test3_author": "Elena Rodriguez",
     "test3_role": "Fotógrafa de vida silvestre"
+  },
+  "Gallery": {
+    "heroTitle": "Experiencias de Clientes y Galería de Safaris",
+    "heroSubtitle": "Momentos reales capturados por nuestros viajeros: desde escapadas costeras soleadas y resorts de lujo hasta la vida salvaje de la sabana y emocionantes aventuras.",
+    "topLabel": "MOMENTOS DE CLIENTES Y GALERÍA",
+    "filterAll": "Todas las fotos",
+    "filterClient": "Momentos de Huéspedes",
+    "filterCoastal": "Costas y Resorts de Playa",
+    "filterDining": "Gastronomía y Relax",
+    "filterWildlife": "Vida Silvestre y Safaris",
+    "filterAdventure": "Aventura y Expediciones",
+    "ctaTitle": "¿Listo para Crear Tus Propios Recuerdos?",
+    "ctaSubtitle": "Ponte en contacto con nuestro equipo para planificar tus vacaciones soñadas en la playa o un emocionante safari africano.",
+    "ctaButton": "Reserva Tu Safari Ahora",
+    "stats1": "Más de 500 Viajes de Clientes",
+    "stats2": "Más de 25 Destinos Exóticos",
+    "stats3": "Itinerarios 100% Personalizados",
+    "stats4": "Hospitalidad de 5 Estrellas"
   }
 }

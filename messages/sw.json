@@ -55,7 +55,8 @@
       "de": "Deutsch",
       "zh": "中文",
       "ar": "العربية"
-    }
+    },
+    "Gallery": "Matunzio"
   },
   "Footer": {
     "desc": "Fanya safari zisizosahaulika kote Afrika. Jionee pori kwa anasa, faraja na usalama ukiwa na Fexty Safaris.",
@@ -296,5 +297,23 @@
     "test3_text": "Kama mpiga picha, nilihitaji mipangilio maalum. Waelekezi walijua haswa wapi pa kuwa na lini. Ujuzi wao mkubwa wa tabia za wanyama ulinipatia picha nilizoota tu kuzipata. Hakika ni operesheni ya kiwango cha dunia.",
     "test3_author": "Elena Rodriguez",
     "test3_role": "Mpiga picha wa Wanyamapori"
+  },
+  "Gallery": {
+    "heroTitle": "Matukio ya Wageni na Picha za Safari",
+    "heroSubtitle": "Matukio halisi yaliyonaswa na wasafiri wetu — kutoka mapumziko ya pwani yenye jua na hoteli za kifahari hadi wanyamapori wa porini na safari za kusisimua.",
+    "topLabel": "PICHA ZA WAGENI NA MATUNZIO YA SAFARI",
+    "filterAll": "Picha Zote",
+    "filterClient": "Matukio ya Wageni",
+    "filterCoastal": "Pwani na Hoteli za Bahari",
+    "filterDining": "Vyakula na Mapumziko",
+    "filterWildlife": "Wanyamapori na Safari",
+    "filterAdventure": "Matukio na Safari za Milimani",
+    "ctaTitle": "Uko Tayari Kutengeneza Kumbukumbu Zako?",
+    "ctaSubtitle": "Wasiliana na wataalamu wetu wa safari kuanza kupanga likizo yako ya ndoto ya pwani au safari ya wanyamapori leo.",
+    "ctaButton": "Weka Nafasi ya Safari Sasa",
+    "stats1": "Safari 500+ za Wageni Halisi",
+    "stats2": "Maeneo 25+ ya Kuvutia",
+    "stats3": "Ratiba 100% Maalum",
+    "stats4": "Ukarimu Bora wa Nyota 5"
   }
 }

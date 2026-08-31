@@ -55,7 +55,8 @@
       "de": "Deutsch",
       "zh": "中文",
       "ar": "العربية"
-    }
+    },
+    "Gallery": "Gallery"
   },
   "Footer": {
     "desc": "Embark on unforgettable journeys across Africa. Experience the wild in luxury, comfort, and safety with Fexty Safaris.",
@@ -296,5 +297,23 @@
     "test3_text": "As a photographer, I needed specific setups. The guides knew exactly where to be and when. Their profound knowledge of animal behavior got me shots I only dreamed of. Truly a world-class operation.",
     "test3_author": "Elena Rodriguez",
     "test3_role": "Wildlife Photographer"
+  },
+  "Gallery": {
+    "heroTitle": "Guest Experiences & Safari Visuals",
+    "heroSubtitle": "Real moments captured by our travelers — from sun-drenched coastal escapes and luxury resort dining to untamed savanna wildlife and thrilling adventures.",
+    "topLabel": "CLIENT MOMENTS & SAFARI GALLERY",
+    "filterAll": "All Photos",
+    "filterClient": "Guest Moments",
+    "filterCoastal": "Coastal & Beach Resorts",
+    "filterDining": "Dining & Relaxation",
+    "filterWildlife": "Wildlife & Safaris",
+    "filterAdventure": "Adventure & Expeditions",
+    "ctaTitle": "Ready to Make Your Own Memories?",
+    "ctaSubtitle": "Contact our travel concierge to start planning your dream beach holiday or African safari adventure today.",
+    "ctaButton": "Book Your Safari Now",
+    "stats1": "500+ Real Client Journeys",
+    "stats2": "25+ Exotic Destinations",
+    "stats3": "100% Tailor-Made Itineraries",
+    "stats4": "5-Star Rated Hospitality"
   }
 }
