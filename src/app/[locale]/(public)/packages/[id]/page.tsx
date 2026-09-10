@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { fetchPackageById } from '@/lib/actions';
 import { notFound } from 'next/navigation';
 import { Clock, MapPin } from 'lucide-react';
@@ -8,6 +9,97 @@ import ItineraryAccordion from '@/components/packages/ItineraryAccordion';
 import PackageInclusions from '@/components/packages/PackageInclusions';
 
 export const revalidate = 3600;
+
+type Props = {
+  params: Promise<{ id: string; locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id, locale } = await params;
+  const { success, data: pkg } = await fetchPackageById(id);
+
+  if (!success || !pkg) {
+    return {
+      title: 'Package Not Found',
+      description: 'The requested safari package could not be found.',
+    };
+  }
+
+  const tDynamic = await getTranslations('DynamicPackages');
+  
+  const slugMap: Record<string, string> = {
+    'Masai Mara Migration Experience': 'masai_mara_migration',
+    'Diani Beach Escape': 'diani_beach_escape',
+    'Amboseli Elephant Safari': 'amboseli_elephants',
+  };
+  
+  const slug = slugMap[pkg.title];
+  const title = slug ? tDynamic(`${slug}.title` as any) : pkg.title;
+  const description = slug ? tDynamic(`${slug}.description` as any) : (pkg.description || 'Experience the adventure of a lifetime with our meticulously crafted itinerary.');
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const heroImage = pkg.image_url || '/images/hero-safari.jpg';
+
+  return {
+    title: `${title} | Premium Safari Experience`,
+    description: description.length > 160 ? `${description.slice(0, 157)}...` : description,
+    keywords: [
+      pkg.title,
+      ...(Array.isArray(pkg.category) ? pkg.category : [pkg.category]),
+      'Kenya Safari Package',
+      'Fexty Safaris',
+      'African Wildlife Tour',
+      'East Africa Holiday'
+    ].filter(Boolean),
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/packages/${id}`,
+      languages: {
+        en: `/en/packages/${id}`,
+        sw: `/sw/packages/${id}`,
+        fr: `/fr/packages/${id}`,
+        es: `/es/packages/${id}`,
+        de: `/de/packages/${id}`,
+        zh: `/zh/packages/${id}`,
+        ar: `/ar/packages/${id}`,
+      },
+    },
+    openGraph: {
+      title: `${title} | Fexty Safaris`,
+      description: description,
+      url: `/${locale}/packages/${id}`,
+      siteName: 'Fexty Safaris',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: `${title} - Fexty Safaris`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | Fexty Safaris`,
+      description: description,
+      images: [heroImage],
+      creator: '@FextySafaris',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 // Mock Fallback Data in case Supabase JSONB arrays are null
 const FALLBACK_ITINERARY = [
@@ -39,7 +131,7 @@ const FALLBACK_EXCLUSIONS = [
   "Premium brand spirits and champagne"
 ];
 
-export default async function PackageDetails({ params }: { params: Promise<{ id: string }> }) {
+export default async function PackageDetails({ params }: { params: Promise<{ id: string; locale: string }> }) {
   const { id } = await params;
   const { success, data: pkg } = await fetchPackageById(id);
 
@@ -80,7 +172,7 @@ export default async function PackageDetails({ params }: { params: Promise<{ id:
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
           <div className="container mx-auto max-w-7xl">
             <span className="inline-block py-1 px-3 rounded-full bg-sunset-500 text-white font-medium text-xs tracking-wider mb-4">
-              {pkg.category}
+              {Array.isArray(pkg.category) ? pkg.category.join(' • ') : pkg.category}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight max-w-4xl">{title}</h1>
             <div className="flex items-center gap-6 text-sand-200">

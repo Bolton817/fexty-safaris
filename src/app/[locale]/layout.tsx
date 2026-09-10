@@ -17,7 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fexty Safaris - Premium Tours & Travel",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke'),
+  title: {
+    template: "%s | Fexty Safaris",
+    default: "Fexty Safaris - Premium Tours & Travel",
+  },
   description: "Experience the untamed beauty of nature with premium, curated safaris and tours tailored to your wildest dreams.",
 };
 

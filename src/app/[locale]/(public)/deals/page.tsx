@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { Link } from '@/i18n/routing';
 import { Clock, ArrowRight } from 'lucide-react';
@@ -5,6 +6,77 @@ import PriceDisplay from '@/components/PriceDisplay';
 import PageHero from '@/components/ui/PageHero';
 
 export const revalidate = 3600; // ISR cache every hour
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const heroImage = '/images/deals-hero.jpg';
+
+  return {
+    title: 'Exclusive Safari Deals & Tour Offers | Fexty Safaris',
+    description: 'Discover handpicked safari packages, beach holiday specials, romantic honeymoon getaways, and group tour deals with Fexty Safaris.',
+    keywords: [
+      'Safari Deals Kenya',
+      'Discounted Safari Packages',
+      'Diani Beach Deals',
+      'Maasai Mara Offers',
+      'Honeymoon Safari Packages',
+      'Group Travel Deals',
+      'Kenya Safari Discounts'
+    ],
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/deals`,
+      languages: {
+        en: '/en/deals',
+        sw: '/sw/deals',
+        fr: '/fr/deals',
+        es: '/es/deals',
+        de: '/de/deals',
+        zh: '/zh/deals',
+        ar: '/ar/deals',
+      },
+    },
+    openGraph: {
+      title: 'Exclusive Safari Deals & Tour Offers | Fexty Safaris',
+      description: 'Discover our handpicked selection of premium tour packages tailored for unforgettable African adventures.',
+      url: `/${locale}/deals`,
+      siteName: 'Fexty Safaris',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: 'Exclusive Safari Deals & Offers - Fexty Safaris',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Exclusive Safari Deals & Tour Offers | Fexty Safaris',
+      description: 'Discover our handpicked selection of premium tour packages tailored for unforgettable African adventures.',
+      images: [heroImage],
+      creator: '@FextySafaris',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 const SUB_CATEGORIES = [
   { id: 'bush-safari', title: 'Bush Safari' },
@@ -20,13 +92,10 @@ const SUB_CATEGORIES = [
 
 export default async function DealsPage() {
   const supabase = await createClient();
-  
-  // Fetch all packages
   const { data: allPackages } = await supabase.from('packages').select('*');
   const packages = allPackages || [];
 
   const groupedPackages = SUB_CATEGORIES.map(sub => {
-    // Robust filtering to check if the sub.title or sub.id appears in the category array, package title, or description.
     const matchingPackages = packages.filter(pkg => {
       let cats: string[] = [];
       if (Array.isArray(pkg.category)) {
@@ -57,7 +126,7 @@ export default async function DealsPage() {
       ...sub,
       packages: matchingPackages
     };
-  }).filter(group => group.packages.length > 0); // Only keep groups that have packages
+  }).filter(group => group.packages.length > 0);
 
   return (
     <div className="flex-1 flex flex-col bg-white">

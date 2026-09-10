@@ -1,10 +1,83 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { Link } from '@/i18n/routing';
-import { Clock, ArrowRight, MapPin } from 'lucide-react';
+import { Clock, ArrowRight } from 'lucide-react';
 import PriceDisplay from '@/components/PriceDisplay';
 import PageHero from '@/components/ui/PageHero';
 
 export const revalidate = 3600; // ISR cache every hour
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const heroImage = '/images/magical-kenya-hero.jpg';
+
+  return {
+    title: 'Magical Kenya Destinations | Maasai Mara, Amboseli & Nakuru Safaris',
+    description: 'Explore Kenya\'s premier safari destinations including Maasai Mara, Amboseli, Lake Naivasha, Nakuru, and Nairobi staycations with Fexty Safaris.',
+    keywords: [
+      'Kenya Safaris',
+      'Maasai Mara',
+      'Amboseli Elephants',
+      'Lake Naivasha',
+      'Lake Nakuru',
+      'Nairobi Staycations',
+      'Kenya Wildlife Tours',
+      'East Africa Safaris'
+    ],
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/destinations/kenya`,
+      languages: {
+        en: '/en/destinations/kenya',
+        sw: '/sw/destinations/kenya',
+        fr: '/fr/destinations/kenya',
+        es: '/es/destinations/kenya',
+        de: '/de/destinations/kenya',
+        zh: '/zh/destinations/kenya',
+        ar: '/ar/destinations/kenya',
+      },
+    },
+    openGraph: {
+      title: 'Magical Kenya Destinations | Fexty Safaris',
+      description: 'Explore the heart of African wildlife, breathtaking savannahs, and iconic game reserves across Kenya.',
+      url: `/${locale}/destinations/kenya`,
+      siteName: 'Fexty Safaris',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: 'Magical Kenya Safari Destinations - Fexty Safaris',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Magical Kenya Destinations | Fexty Safaris',
+      description: 'Explore the heart of African wildlife, breathtaking savannahs, and iconic game reserves across Kenya.',
+      images: [heroImage],
+      creator: '@FextySafaris',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 // The sub-categories to display on this page
 const SUB_CATEGORIES = [
@@ -17,18 +90,10 @@ const SUB_CATEGORIES = [
 
 export default async function MagicalKenyaPage() {
   const supabase = await createClient();
-  
-  // Fetch packages for all kenya sub-categories
-  // Using an in filter for all these sub-categories is tricky with jsonb contains, 
-  // so we can either fetch all packages and filter in memory, or run multiple queries.
-  // Given we only have 5 sub-categories, we can fetch all packages that have ANY of these, or just fetch all and group them.
-  // Actually, to be safe, let's fetch all packages and group them in memory.
   const { data: allPackages } = await supabase.from('packages').select('*');
   const packages = allPackages || [];
 
   const groupedPackages = SUB_CATEGORIES.map(sub => {
-    // Filter packages where the category array contains the sub.id
-    // To be extremely robust, we also check if the sub.title appears in the package title or description.
     const matchingPackages = packages.filter(pkg => {
       let cats: string[] = [];
       if (Array.isArray(pkg.category)) {
@@ -59,7 +124,7 @@ export default async function MagicalKenyaPage() {
       ...sub,
       packages: matchingPackages
     };
-  }).filter(group => group.packages.length > 0); // Only keep groups that have packages
+  }).filter(group => group.packages.length > 0);
 
   return (
     <div className="flex-1 flex flex-col bg-white">

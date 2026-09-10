@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { Link } from '@/i18n/routing';
 import { Clock, ArrowRight } from 'lucide-react';
@@ -5,6 +6,78 @@ import PriceDisplay from '@/components/PriceDisplay';
 import PageHero from '@/components/ui/PageHero';
 
 export const revalidate = 3600; // ISR cache every hour
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const heroImage = '/images/tembo-coast-hero.jpg';
+
+  return {
+    title: 'The Tembo Coast Destinations | Diani Beach, Mombasa & Watamu',
+    description: 'Discover pristine white sand beaches, azure waters, and luxury coastal resorts in Diani Beach, Mombasa, Malindi, Watamu, and Lamu with Fexty Safaris.',
+    keywords: [
+      'Diani Beach Holidays',
+      'Mombasa Beach Vacations',
+      'Watamu Marine Park',
+      'Malindi Resorts',
+      'Lamu Archipelago',
+      'Tembo Coast Safaris',
+      'Kenya Coastal Holidays',
+      'Swahili Coast Getaways'
+    ],
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/destinations/coast`,
+      languages: {
+        en: '/en/destinations/coast',
+        sw: '/sw/destinations/coast',
+        fr: '/fr/destinations/coast',
+        es: '/es/destinations/coast',
+        de: '/de/destinations/coast',
+        zh: '/zh/destinations/coast',
+        ar: '/ar/destinations/coast',
+      },
+    },
+    openGraph: {
+      title: 'The Tembo Coast Destinations | Fexty Safaris',
+      description: 'Where pristine white sands meet the azure waters of the Indian Ocean. Explore luxury beach holidays and marine excursions.',
+      url: `/${locale}/destinations/coast`,
+      siteName: 'Fexty Safaris',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: 'Tembo Coast Beach Destinations - Fexty Safaris',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'The Tembo Coast Destinations | Fexty Safaris',
+      description: 'Where pristine white sands meet the azure waters of the Indian Ocean. Explore luxury beach holidays and marine excursions.',
+      images: [heroImage],
+      creator: '@FextySafaris',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 // The sub-categories to display on this page
 const SUB_CATEGORIES = [
@@ -17,13 +90,10 @@ const SUB_CATEGORIES = [
 
 export default async function TemboCoastPage() {
   const supabase = await createClient();
-  
-  // Fetch packages for all coast sub-categories
   const { data: allPackages } = await supabase.from('packages').select('*');
   const packages = allPackages || [];
 
   const groupedPackages = SUB_CATEGORIES.map(sub => {
-    // To be extremely robust, we check if the sub.title or sub.id appears in the category array, package title, or description.
     const matchingPackages = packages.filter(pkg => {
       let cats: string[] = [];
       if (Array.isArray(pkg.category)) {
@@ -54,7 +124,7 @@ export default async function TemboCoastPage() {
       ...sub,
       packages: matchingPackages
     };
-  }).filter(group => group.packages.length > 0); // Only keep groups that have packages
+  }).filter(group => group.packages.length > 0);
 
   return (
     <div className="flex-1 flex flex-col bg-white">

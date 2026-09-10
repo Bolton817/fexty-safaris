@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { Link } from '@/i18n/routing';
 import { Clock, ArrowRight } from 'lucide-react';
@@ -5,6 +6,78 @@ import PriceDisplay from '@/components/PriceDisplay';
 import PageHero from '@/components/ui/PageHero';
 
 export const revalidate = 3600; // ISR cache every hour
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const heroImage = '/images/beyond-borders-hero.jpg';
+
+  return {
+    title: 'Beyond Borders International Tours | Dubai, Maldives & Bali',
+    description: 'Embark on extraordinary international travel packages to Dubai, the Maldives, Bali, Malaysia, Singapore, Europe, and Cape Town curated by Fexty Safaris.',
+    keywords: [
+      'Beyond Borders Travel',
+      'Dubai Tour Packages',
+      'Maldives Honeymoon',
+      'Bali Getaways',
+      'Europe Tours',
+      'Cape Town Holidays',
+      'International Travel Concierge',
+      'Luxury Worldwide Tours'
+    ],
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/destinations/borders`,
+      languages: {
+        en: '/en/destinations/borders',
+        sw: '/sw/destinations/borders',
+        fr: '/fr/destinations/borders',
+        es: '/es/destinations/borders',
+        de: '/de/destinations/borders',
+        zh: '/zh/destinations/borders',
+        ar: '/ar/destinations/borders',
+      },
+    },
+    openGraph: {
+      title: 'Beyond Borders International Tours | Fexty Safaris',
+      description: 'Embark on extraordinary international adventures curated to perfection — Dubai, Maldives, Bali, Europe, and beyond.',
+      url: `/${locale}/destinations/borders`,
+      siteName: 'Fexty Safaris',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: 'Beyond Borders International Tours - Fexty Safaris',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Beyond Borders International Tours | Fexty Safaris',
+      description: 'Embark on extraordinary international adventures curated to perfection — Dubai, Maldives, Bali, Europe, and beyond.',
+      images: [heroImage],
+      creator: '@FextySafaris',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 // The sub-categories to display on this page
 const SUB_CATEGORIES = [
@@ -18,13 +91,10 @@ const SUB_CATEGORIES = [
 
 export default async function BeyondBordersPage() {
   const supabase = await createClient();
-  
-  // Fetch packages for all borders sub-categories
   const { data: allPackages } = await supabase.from('packages').select('*');
   const packages = allPackages || [];
 
   const groupedPackages = SUB_CATEGORIES.map(sub => {
-    // To be extremely robust, we check if the sub.title or sub.id appears in the category array, package title, or description.
     const matchingPackages = packages.filter(pkg => {
       let cats: string[] = [];
       if (Array.isArray(pkg.category)) {
@@ -55,7 +125,7 @@ export default async function BeyondBordersPage() {
       ...sub,
       packages: matchingPackages
     };
-  }).filter(group => group.packages.length > 0); // Only keep groups that have packages
+  }).filter(group => group.packages.length > 0);
 
   return (
     <div className="flex-1 flex flex-col bg-white">

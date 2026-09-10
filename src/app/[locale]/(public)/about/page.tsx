@@ -1,11 +1,81 @@
-import { Target, Eye, Shield, Users, Leaf, HeartHandshake, Award, CheckCircle2, ChevronDown } from 'lucide-react';
+import type { Metadata } from 'next';
+import { Target, Eye, Shield, Leaf, HeartHandshake, Award, CheckCircle2, ChevronDown } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { getTranslations } from 'next-intl/server';
 import PageHero from '@/components/ui/PageHero';
 
-export const metadata = {
-  title: 'About Us | Fexty Safaris',
+export const revalidate = 3600; // ISR cache every hour
+
+type Props = {
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const heroImage = '/images/about-us-hero.jpg';
+
+  return {
+    title: 'About Us | Our Story, Mission & Safari Heritage',
+    description: 'Learn about Fexty Safaris — our passion for African wildlife, commitment to sustainable eco-tourism, customer-first hospitality, and bespoke safari journeys.',
+    keywords: [
+      'About Fexty Safaris',
+      'Kenya Safari Company',
+      'Sustainable Eco-Tourism',
+      'African Wildlife Guides',
+      'Safari Heritage Kenya',
+      'Trusted Tour Operator Nairobi',
+      'Luxury Travel Specialists'
+    ],
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: `/${locale}/about`,
+      languages: {
+        en: '/en/about',
+        sw: '/sw/about',
+        fr: '/fr/about',
+        es: '/es/about',
+        de: '/de/about',
+        zh: '/zh/about',
+        ar: '/ar/about',
+      },
+    },
+    openGraph: {
+      title: 'About Us | Fexty Safaris',
+      description: 'Discover the heart and soul behind Fexty Safaris — our story, vision, sustainable conservation values, and passion for unforgettable travel.',
+      url: `/${locale}/about`,
+      siteName: 'Fexty Safaris',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: 'About Fexty Safaris - Heritage & Sustainable Tourism',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'About Us | Fexty Safaris',
+      description: 'Discover the heart and soul behind Fexty Safaris — our story, vision, and sustainable safari experiences.',
+      images: [heroImage],
+      creator: '@FextySafaris',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 export default async function AboutPage() {
   const t = await getTranslations('About');
@@ -35,7 +105,6 @@ export default async function AboutPage() {
 
   return (
     <div className="flex-1 flex flex-col bg-background">
-      
       {/* 1. Hero Section */}
       <PageHero 
         title={t('heroTitle')}
@@ -74,7 +143,6 @@ export default async function AboutPage() {
       <section className="py-24 bg-savanna-50 border-y border-sand-200">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            
             {/* Vision */}
             <div className="bg-white p-10 rounded-3xl shadow-lg border border-sand-100 relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
@@ -107,7 +175,6 @@ export default async function AboutPage() {
                 ))}
               </ul>
             </div>
-            
           </div>
         </div>
       </section>
@@ -115,7 +182,6 @@ export default async function AboutPage() {
       {/* 4. Core Values & Why Choose Us */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-savanna-950 mb-6">{t('whyChooseUsTitle')}</h2>
             <div className="w-24 h-1 bg-sunset-500 mx-auto rounded-full" />
@@ -150,7 +216,6 @@ export default async function AboutPage() {
               })}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -211,7 +276,6 @@ export default async function AboutPage() {
           </Link>
         </div>
       </section>
-
     </div>
   );
 }
