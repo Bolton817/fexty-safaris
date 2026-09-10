@@ -1,8 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /admin
-Disallow: /admin/*
-Disallow: /api/*
-
-Sitemap: https://fextysafaris.com/sitemap.xml
-
