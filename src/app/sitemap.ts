@@ -111,6 +111,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
 
         const packageImage = pkg.image_url || `${baseUrl}/images/hero-safari.jpg`;
+        const escapedImage = packageImage.replace(/&/g, '&amp;');
 
         entries.push({
           url: `${baseUrl}/${locale}/packages/${pkg.id}`,
@@ -120,7 +121,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           alternates: {
             languages: languageAlternates,
           },
-          images: [packageImage],
+          images: [escapedImage],
         });
       }
     }
