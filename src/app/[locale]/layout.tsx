@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.com'),
   title: {
     template: "%s | Fexty Safaris",
     default: "Fexty Safaris - Premium Tours & Travel",

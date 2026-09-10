@@ -9,7 +9,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.com';
   const heroImage = '/images/contact-us-hero.jpg';
 
   return {

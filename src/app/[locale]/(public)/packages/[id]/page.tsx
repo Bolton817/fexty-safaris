@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = slug ? tDynamic(`${slug}.title` as any) : pkg.title;
   const description = slug ? tDynamic(`${slug}.description` as any) : (pkg.description || 'Experience the adventure of a lifetime with our meticulously crafted itinerary.');
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.co.ke';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fextysafaris.com';
   const heroImage = pkg.image_url || '/images/hero-safari.jpg';
 
   return {

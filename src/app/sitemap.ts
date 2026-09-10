@@ -14,7 +14,7 @@ function getBaseUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`;
   }
-  return 'https://fextysafaris.co.ke';
+  return 'https://fextysafaris.com';
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

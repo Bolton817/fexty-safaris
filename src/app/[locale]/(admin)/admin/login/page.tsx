@@ -47,7 +47,7 @@ export default function AdminLogin() {
               name="email"
               required 
               className="w-full px-4 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sunset-500"
-              placeholder="admin@fextysafaris.co.ke"
+              placeholder="admin@fextysafaris.com"
             />
           </div>
           <div>

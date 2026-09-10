@@ -134,7 +134,7 @@ export async function submitContactForm(formData: FormData) {
     await transporter.sendMail({
       from: `"${name}" <${process.env.SMTP_USER}>`,
       replyTo: email,
-      to: 'info@fextysafaris.co.ke',
+      to: 'info@fextysafaris.com',
       subject: `New Contact Inquiry from ${name}`,
       text: message,
       html: `
